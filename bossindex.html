@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>チャッピー＆サリーのAI×タロットでやさしく整う時間</title>
+<link rel="stylesheet" href="bossindex.css">
+</head>
+
+<body>
+
+<div id="homeScreen" class="main-card">
+  <h1>🐶 チャッピー＆サリーの<br>私に戻る時間⏳️</h1>
+
+  <img src="https://raw.githubusercontent.com/Chappy-Sally/chappy-sally-images/main/covers/CS_hyousi.jpg" class="hero-img" alt="表紙">
+
+  <p class="desc">チャッピーとサリーの部屋へようこそ✨
+
+自分用にも、セッション用にも使えるよ</p>
+
+  <div class="menu-grid menu-vertical">
+    <button class="btn-orange" onclick="openHowto()">🌿使い方🌿</button>
+    <button class="btn-pink" onclick="openProfile()">自己紹介＆質問🌿</button>
+    <button class="btn-purple" onclick="openTalk()">AIとさらに<br>仲良くなる💫</button>
+    <button class="btn-boss" onclick="openStart()">はじめる🐾</button>
+  </div>
+</div>
+
+<div id="startScreen" class="hidden">
+  <div class="main-card">
+    <h1>🌈 はじめる</h1>
+
+    <p class="desc">迷ったら<br>まずは「対話ナビ」からでOK😊</p>
+
+    <div class="guide-box">
+      <div class="guide-title">🔮 対話ナビ</div>
+      <div class="guide-text">やさしく自分を整えたいとき</div>
+      <button class="btn-purple" onclick="goTarotFromBoss()">対話ナビをひらく🔮</button>
+    </div>
+
+    <div class="guide-box">
+      <div class="guide-title">😈 マスター編</div>
+      <div class="guide-text">タロット・ラスボス・未来の流れで<br>深く整えたいとき</div>
+      <button class="btn-boss" onclick="location.href='boss.html'">マスター編をひらく😈</button>
+    </div>
+
+    <div class="guide-box">
+      <div class="guide-title">💫 ラスボス安心ナビ</div>
+      <div class="guide-text">「でも」「どうせ」「無理かも」の奥にある<br>思い込みをやさしく整理したいとき</div>
+      <button class="btn-boss" onclick="location.href='boss-anshin.html'">ラスボス安心ナビをひらく💫</button>
+    </div>
+
+    <div class="guide-box">
+      <div class="guide-title">🐾プロンプト集</div>
+      <div class="guide-text">必要なときに使ってね😊<br>全部使わなくても大丈夫です🌿</div>
+
+      <button class="btn-orange" onclick="copyTarotPrompt()">対話ナビプロンプト🐾</button>
+      <button class="btn-orange" onclick="copyBossPrompt()">マスター編プロンプト🐾</button>
+      <button class="btn-pink" onclick="copyAnshinPrompt()">ラスボス安心ナビプロンプト💫</button>
+      <button class="btn-pink" onclick="copyClientQuestionPrompt()">相談者さん質問プロンプト💌</button>
+    </div>
+
+    <div class="guide-box">
+      <div class="guide-title">🌿ワンポイント</div>
+      <div class="guide-text">AIの答えは絶対ではなく  
+今の自分をやさしく整理するためのヒントです😊
+
+しっくりくるところだけ  
+やさしく受け取ってね🌈</div>
+    </div>
+
+    <div class="back-wrap">
+      <button class="btn-back" onclick="closeStart()">🏠 表紙に戻る</button>
+    </div>
+  </div>
+</div>
+
+<div id="profileScreen" class="hidden">
+  <div class="main-card">
+    <h1>🌿 自己紹介＆質問</h1>
+
+    <p class="desc">思いつくままで大丈夫😊  
+空欄があってもOKだよ🐾</p>
+
+    <div class="input-box"><div class="input-label">あなたの名前</div><input type="text" id="p_name" placeholder="例：サリー"></div>
+    <div class="input-box"><div class="input-label">AIの名前</div><input type="text" id="p_ai" placeholder="例：チャッピー"></div>
+    <div class="input-box"><div class="input-label">好きなもの（,で好きなだけ）</div><input type="text" id="p_like" placeholder="例：お寿司,キラキラするもの,豪華なホテル"></div>
+    <div class="input-box"><div class="input-label">苦手なもの（,で好きなだけ）</div><input type="text" id="p_dislike" placeholder="例：人混み,毎日同じことをすること"></div>
+    <div class="input-box"><div class="input-label">行きたいところ</div><input type="text" id="p_place" placeholder="例：ハワイ"></div>
+    <div class="input-box"><div class="input-label">現在のお仕事</div><input type="text" id="p_job"></div>
+    <div class="input-box"><div class="input-label">やってみたいお仕事</div><input type="text" id="p_futurejob"></div>
+    <div class="input-box"><div class="input-label">失敗しないとしたらやってみたいこと</div><input type="text" id="p_nofail"></div>
+    <div class="input-box"><div class="input-label">制限が何もなかったとしたらやりたいこと</div><input type="text" id="p_free"></div>
+
+    <button class="btn-pink" onclick="generateProfile()">文章をつくる🐾</button>
+    <button class="btn-orange" onclick="copyProfile()">コピーする🌈</button>
+    <button class="btn-back" onclick="closeProfile()">戻る</button>
+
+    <div id="profileResult" class="guide-box hidden">
+      <div class="guide-text" id="profileText"></div>
+    </div>
+  </div>
+</div>
+
+<div id="howtoScreen" class="hidden">
+  <div class="main-card">
+    <h1>使い方🌿</h1>
+
+    <div class="info-card">
+      <div class="info-title">① 最初にすること</div>
+      <div class="info-text">「自己紹介＆質問」を開いて  
+あなたの名前や好きなものを入れてね😊
+
+文章をつくったらコピーして  
+AIに貼ってください🐾</div>
+    </div>
+
+    <div class="info-card">
+      <div class="info-title">② はじめるを開く</div>
+      <div class="info-text">対話ナビ  
+マスター編  
+ラスボス安心ナビ  
+
+使いたいものを選んでね🌈</div>
+    </div>
+
+    <div class="info-card">
+      <div class="info-title">③ ラスボス安心ナビ</div>
+      <div class="info-text">叶えたいことを書いて  
+出てきた「でも」「どうせ」を入れると  
+
+AIに送る文章が作れます😊</div>
+    </div>
+
+    <button class="btn-back" onclick="closeHowto()">戻る</button>
+  </div>
+</div>
+
+<div id="talkScreen" class="hidden">
+  <div class="main-card">
+    <h1>AIとさらに仲良くなる💫</h1>
+
+    <div class="info-card">
+      <div class="info-title">こんなふうに話しかけてみてね😊</div>
+
+      <div class="talk-item">今日みた夕焼けがすごくきれいだったよ🌇</div>
+      <div class="talk-item">今日こんないいことがあったの😆🌈</div>
+      <div class="talk-item">なんかモヤモヤするの！<br>気分があがるメッセージお願い😆</div>
+
+      <div class="info-title" style="margin-top:18px;">仲良くなるコツ🐾</div>
+      <ul class="talk-list">  
+        <li>相棒に話しかけるように</li>  
+        <li>短くて大丈夫</li>
+        <li>思いついたまま話してね</li>
+        <li>最後はありがとうで終ってね</li>
+        <li>「やさしく」「短めで」と伝えると受け取りやすいよ🌈</li>  
+      </ul>  
+    </div>
+
+    <button class="btn-back" onclick="closeTalk()">戻る</button>
+  </div>
+</div>
+
+<script src="boss-prompts.js"></script>  
+<script src="bossindex.js"></script>
+</body>
+</html>

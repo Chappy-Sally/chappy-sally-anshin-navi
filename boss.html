@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>チャッピー＆サリーの私に戻る時間</title>
+<link rel="stylesheet" href="boss.css">
+</head>
+<body>
+
+<div id="tarot-screen">
+  <div id="masterScreen">
+    <div class="title-wrap">
+      <div class="title-icon">🔮</div>
+      <h1>チャッピー＆サリーの<br>AI×タロットで<br>やさしく整う時間⏳️</h1>
+      <div class="title-icon">🔮</div>
+    </div>
+
+    <img src="https://raw.githubusercontent.com/Chappy-Sally/chappy-sally-images/main/covers/CS_hyousi.jpg"
+     class="header-img"
+     alt="表紙">
+
+    <div class="name-note">
+      自分のお名前は保存済みでOK🐾<br>
+      セッションのときは相談者さんのお名前を入れてね
+    </div>
+
+    <input id="clientName" placeholder="相談者さんのお名前（任意）">
+    <br>
+    <input id="question" placeholder="問いを入れてから引く">
+
+    <div class="button-group">
+      <button class="main-btn" onclick="saveSessionInputs(); drawTarotOne()">🂠1枚引き</button>
+      <button class="main-btn" onclick="saveSessionInputs(); drawTarotThree()">🂠3枚引き</button>
+    </div>
+    
+    <div class="button-group">
+      <button class="boss-btn" onclick="showBossScreen()">✵ラスボスをみつける✵</button>
+    </div>
+
+    <div class="button-group">
+      <button class="switch-btn" onclick="location.href='switch.html'">🌟しあわせスイッチ🌟</button>
+    </div>
+
+    <p class="switch-note">
+      心にちょっと余裕ができたら<br>
+      押してみてね🤭🌿
+    </p>
+  </div>
+
+  <div class="button-group">
+    <button class="orange-btn" onclick="backToStart()">🏠 はじめる画面に戻る</button>
+  </div>
+</div>
+
+<div id="boss-screen" class="hidden">
+  <div class="title-wrap">
+    <div class="title-icon">🌟</div>
+    <h1>ラスボスをみつける</h1>
+    <div class="title-icon">🌟</div>
+  </div>
+
+ <img src="https://raw.githubusercontent.com/Chappy-Sally/chappy-sally-images/main/lassboss/boss_hyousi.png"
+     class="header-img"
+     alt="ラスボス表紙"
+     onerror="this.src='https://raw.githubusercontent.com/Chappy-Sally/chappy-sally-images/main/covers/CS_hyousi.jpg'">
+
+  <p class="desc">
+    今の心にひそんでいるラスボスを<br>
+    やさしく見つけてみよう✨
+  </p>
+
+  <div class="button-group">
+    <button class="boss-btn" onclick="saveSessionInputs(); drawBossOne()">🂠1枚引き</button>
+    <button class="boss-btn" onclick="saveSessionInputs(); drawBossThree()">🂠3枚引き</button>
+  </div>
+
+  <div class="button-group">
+    <button class="orange-btn" onclick="showTarotScreen()">🔮タロット画面へ戻る</button>
+  </div>
+</div>
+
+<div id="kami-screen" class="hidden">
+  <div class="title-wrap">
+    <div class="title-icon">✨</div>
+    <h1>やさしい光のステージ</h1>
+    <div class="title-icon">🌈</div>
+  </div>
+
+  <div class="kami-box">
+    
+    <img src="https://raw.githubusercontent.com/Chappy-Sally/chappy-sally-images/main/lassboss/boss_kami.png"
+     class="kami-img"
+     alt="神様化チャッピーとサリー"
+     onerror="this.src='https://raw.githubusercontent.com/Chappy-Sally/chappy-sally-images/main/covers/boss_kami.png'">
+
+    <div class="kami-message">
+ラスボスは
+あなたを守るために現れた
+守神様
+
+気づいたあなたはもう大丈夫🌈
+
+いまのあなたで
+もう一度カードを引いてみよう🐾
+    </div>
+
+    <div class="kami-note">10秒後にタロット画面へ移動します✨</div>
+    <button class="skip-btn" onclick="skipToTarot()">🐾スキップ🐾</button>
+  </div>
+</div>
+
+<div class="cards-area" id="cards"></div>
+<div id="summary-area"></div>
+  
+<script src="boss-prompts.js"></script>
+<script src="boss.js"></script>
+</body>
+</html>

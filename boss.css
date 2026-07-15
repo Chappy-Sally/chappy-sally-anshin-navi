@@ -1,0 +1,191 @@
+body{
+  font-family:"Hiragino Kaku Gothic ProN", sans-serif;
+  text-align:center;
+  background:#fff0f5;
+  padding:20px;
+  color:#5b3a1e;
+  margin:0;
+}
+
+.hidden{display:none !important;}
+
+.title-wrap{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:15px;
+  margin-top:10px;
+}
+
+.title-icon{font-size:32px;}
+
+h1{
+  color:#5b3a1e;
+  font-size:26px;
+  line-height:1.4;
+  margin:0;
+}
+
+.header-img,.kami-img{
+  width:80%;
+  max-width:400px;
+  border-radius:20px;
+  margin:18px 0;
+  box-shadow:0 6px 14px rgba(0,0,0,0.12);
+}
+
+.desc{
+  font-size:18px;
+  color:#6b4b2a;
+  margin:14px 0 20px;
+  line-height:1.8;
+  white-space:pre-line;
+}
+
+.name-note{
+  font-size:14px;
+  color:#9a7b5d;
+  line-height:1.7;
+  margin:0 auto 14px;
+  white-space:pre-line;
+  width:82%;
+  max-width:360px;
+}
+
+input{
+  width:82%;
+  max-width:360px;
+  padding:14px;
+  border-radius:22px;
+  border:2px solid #d6b6ff;
+  margin-bottom:12px;
+  font-size:17px;
+  box-sizing:border-box;
+  background:white;
+}
+
+button{
+  padding:14px 22px;
+  margin:6px;
+  border:none;
+  border-radius:30px;
+  color:white;
+  font-size:18px;
+  cursor:pointer;
+  box-shadow:0 4px 10px rgba(0,0,0,0.08);
+  min-width:160px;
+}
+
+.main-btn{background:linear-gradient(135deg,#f7c1cc,#c9b6ff);}
+.boss-btn{background:linear-gradient(135deg,#233b6e,#3f5f9a,#6d85c4);}
+.back-btn,.orange-btn{background:linear-gradient(135deg,#ffbe73,#f6a65d);}
+.return-btn,.skip-btn{background:linear-gradient(135deg,#f7c97d,#f2a86b,#ec8fd0);}
+
+.switch-btn{
+  background:#c8f7dc;
+  color:#2e6b4f !important;
+  font-weight:bold;
+}
+
+.button-group{
+  margin-top:10px;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.cards-area{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:20px;
+  margin-top:25px;
+  min-height:180px;
+}
+
+.card-box{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  width:170px;
+}
+
+.card-box img{
+  width:160px;
+  border-radius:12px;
+  box-shadow:0 6px 14px rgba(0,0,0,0.2);
+  background:white;
+}
+
+.reversed{transform:rotate(180deg);}
+
+.label{
+  margin-top:10px;
+  font-size:16px;
+  color:#5b3a1e;
+  line-height:1.5;
+  min-height:24px;
+  white-space:pre-line;
+}
+
+.summary-box,.return-box,.kami-box{
+  width:92%;
+  max-width:560px;
+  margin:22px auto 0;
+  padding:18px 16px;
+  border-radius:22px;
+  background:rgba(255,255,255,0.82);
+  box-shadow:0 4px 10px rgba(0,0,0,0.06);
+}
+
+.summary-title{
+  font-size:20px;
+  font-weight:bold;
+  color:#6b4b2a;
+  margin-bottom:12px;
+}
+
+.summary-buttons{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:10px;
+}
+
+.mini-btn{
+  padding:12px 18px;
+  border-radius:26px;
+  font-size:18px;
+}
+
+.mini-ai{
+  background:linear-gradient(135deg,#8bb7ff,#6f8fff,#8e7cff);
+}
+
+.return-message,.kami-message{
+  font-size:20px;
+  color:#7a4d28;
+  line-height:1.9;
+  margin-bottom:14px;
+  white-space:pre-line;
+}
+
+.kami-note{
+  font-size:15px;
+  color:#9a7b5d;
+  margin:8px 0;
+}
+
+.switch-note{
+  font-size:15px;
+  color:#8a7f76;
+  margin-top:12px;
+  line-height:1.8;
+}
+
+@media(max-width:480px){
+  h1{font-size:24px;}
+  button{font-size:16px; min-width:140px;}
+}

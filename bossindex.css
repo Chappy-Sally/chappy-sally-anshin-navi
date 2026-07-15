@@ -1,0 +1,178 @@
+body{
+  font-family:"Hiragino Kaku Gothic ProN", sans-serif;
+  text-align:center;
+  background:#fff0f5;
+  padding:20px 14px 40px;
+  color:#5b3a1e;
+  margin:0;
+}
+
+.main-card{
+  width:92%;
+  max-width:620px;
+  margin:0 auto;
+  background:rgba(255,255,255,0.9);
+  border-radius:28px;
+  padding:24px 16px 28px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.08);
+}
+
+h1{
+  font-size:30px;
+  line-height:1.4;
+  margin:0 0 14px;
+  color:#6b4b2a;
+}
+
+.hero-img{
+  width:90%;
+  max-width:460px;
+  border-radius:22px;
+  margin:16px 0 20px;
+  box-shadow:0 8px 18px rgba(0,0,0,0.12);
+}
+
+.desc{
+  font-size:18px;
+  line-height:1.9;
+  margin:0 0 20px;
+  color:#7b5b39;
+  white-space:pre-line;
+}
+
+.input-box,.guide-box{
+  width:92%;
+  max-width:500px;
+  margin:18px auto 0;
+  padding:16px 14px;
+  background:#fff8fc;
+  border-radius:22px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.05);
+}
+
+.guide-box{ background:#fffdf8; }
+
+.input-label,.guide-title{
+  font-size:18px;
+  color:#6b4b2a;
+  margin-bottom:8px;
+  font-weight:bold;
+}
+
+.guide-text{
+  font-size:15px;
+  color:#7b5b39;
+  line-height:1.8;
+  white-space:pre-line;
+}
+
+input{
+  width:92%;
+  max-width:380px;
+  padding:14px 16px;
+  border-radius:20px;
+  border:2px solid #d8c0ff;
+  font-size:17px;
+  box-sizing:border-box;
+  background:white;
+}
+
+button{
+  padding:14px 22px;
+  margin:8px 6px;
+  border:none;
+  border-radius:28px;
+  color:white;
+  font-size:18px;
+  cursor:pointer;
+  box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+
+.btn-pink{ background:linear-gradient(135deg,#f6b1c7,#eab0f5); }
+.btn-purple{ background:linear-gradient(135deg,#b9a3ff,#9ea8ff); }
+.btn-orange{ background:linear-gradient(135deg,#ffbe73,#f6a65d); }
+.btn-boss{ background:linear-gradient(135deg,#233b6e,#3f5f9a,#6d85c4); }
+
+.btn-back{
+  background:linear-gradient(135deg,#dcd6ff,#c8ccff);
+  color:#5b3a1e;
+}
+
+.hidden{ display:none !important; }
+
+.menu-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin:20px auto;
+  max-width:500px;
+}
+
+.menu-vertical{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  align-items:center;
+  max-width:300px;
+  margin:16px auto;
+}
+
+.menu-vertical button{
+  width:88%;
+  min-height:42px;
+  font-size:14px;
+  padding:8px 12px;
+  border-radius:24px;
+  margin:5px auto;
+}
+
+.info-card{
+  width:92%;
+  max-width:500px;
+  margin:18px auto 0;
+  padding:18px 14px;
+  background:#f8f6ff;
+  border:2px solid #d8d6ff;
+  border-radius:22px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.05);
+  text-align:left;
+}
+
+.info-title{
+  font-size:18px;
+  font-weight:bold;
+  color:#5f58c9;
+  margin-bottom:10px;
+  text-align:center;
+}
+
+.info-text{
+  font-size:16px;
+  line-height:1.9;
+  color:#6b4b2a;
+  white-space:pre-line;
+}
+
+.talk-item{
+  background:#fff;
+  border:1px solid #dcdfff;
+  border-radius:18px;
+  padding:8px 12px;
+  margin:0 0 8px;
+  line-height:1.35;
+}
+
+.talk-list{
+  margin:10px 0 0 0;
+  padding-left:26px;
+  line-height:1.7;
+  color:#6b4b2a;
+}
+
+.back-wrap{ margin-top:18px; }
+
+@media (max-width:480px){
+  button,input{ font-size:15px; }
+  .desc,.guide-text,.info-text{ font-size:15px; }
+  h1{ font-size:25px; }
+}

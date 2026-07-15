@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ラスボス安心ナビ</title>
+<link rel="stylesheet" href="boss-anshin.css">
+</head>
+
+<body>
+
+<div class="main-card">
+  <h1>💫 ラスボス安心ナビ 💫</h1>
+
+  <p class="desc">
+    「でも」「どうせ」「無理かも」の奥にある気持ちを、<br>
+    やさしく見つけて安心に戻るナビです。
+  </p>
+
+  <div class="input-box">
+    <label>叶えたいこと・テーマ</label>
+    <input id="theme" placeholder="例：私は100万円受け取りたい">
+  </div>
+
+  <div class="input-box">
+    <label>出てきた「でも」「どうせ」</label>
+    <textarea id="blocks" placeholder="例：でも働けない。どうせ私には無理。そんな商品がない。"></textarea>
+  </div>
+
+  <div class="button-group">
+    <button class="boss-btn" onclick="drawBossOne()">ラスボス1枚引き</button>
+    <button class="boss-btn" onclick="drawBossThree()">ラスボス3枚引き</button>
+  </div>
+
+  <div id="cardsArea" class="cards-area hidden"></div>
+
+  <button id="copyBtn" class="copy-btn" onclick="copyPrompt()" disabled>
+    AIに送る文章をコピー
+  </button>
+
+  <p class="note">
+    AIの答えは絶対ではなく、今の自分をやさしく整理するためのヒントです。
+  </p>
+
+  <div class="button-group">
+    <button class="back-btn" onclick="location.href='bossindex.html'">🏠 はじめる画面に戻る</button>
+  </div>
+</div>
+
+<script src="boss-anshin.js"></script>
+</body>
+</html>
