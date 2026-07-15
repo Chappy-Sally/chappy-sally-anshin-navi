@@ -27,13 +27,14 @@ h1{
 }
 
 .header-img,.kami-img{
-  width:80%;
-  max-width:400px;
-  border-radius:20px;
-  margin:18px 0;
-  box-shadow:0 6px 14px rgba(0,0,0,0.12);
+.header-img{
+  width:90%;
+  max-width:460px;
+  border-radius:22px;
+  margin:14px auto 18px;
+  display:block;
+  box-shadow:0 8px 18px rgba(0,0,0,0.12);
 }
-
 .desc{
   font-size:18px;
   line-height:1.7;
