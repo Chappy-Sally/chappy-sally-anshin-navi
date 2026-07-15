@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>チャッピー＆サリーのAI×タロットでやさしく整う時間</title>
+
+<style>
+body{
+  font-family:"Hiragino Kaku Gothic ProN", sans-serif;
+  text-align:center;
+  background:#fff0f5;
+  padding:20px 14px 40px;
+  color:#5b3a1e;
+  margin:0;
+}
+
+.main-card{
+  width:92%;
+  max-width:620px;
+  margin:0 auto;
+  background:rgba(255,255,255,0.9);
+  border-radius:28px;
+  padding:24px 16px 28px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.08);
+}
+
+h1{
+  font-size:30px;
+  line-height:1.4;
+  margin:0 0 14px;
+  color:#6b4b2a;
+}
+
+.hero-img{
+  width:90%;
+  max-width:460px;
+  border-radius:22px;
+  margin:16px 0 20px;
+  box-shadow:0 8px 18px rgba(0,0,0,0.12);
+}
+
+.desc{
+  font-size:18px;
+  line-height:1.9;
+  margin:0 0 20px;
+  color:#7b5b39;
+  white-space:pre-line;
+}
+
+.input-box{
+  width:92%;
+  max-width:500px;
+  margin:0 auto 14px;
+  padding:16px 14px;
+  background:#fff8fc;
+  border-radius:22px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.05);
+}
+
+.input-label{
+  font-size:18px;
+  color:#6b4b2a;
+  margin-bottom:8px;
+  font-weight:bold;
+}
+
+.input-note{
+  font-size:14px;
+  color:#9a7b5d;
+  line-height:1.7;
+  margin-bottom:10px;
+  white-space:pre-line;
+}
+
+input{
+  width:92%;
+  max-width:380px;
+  padding:14px 16px;
+  border-radius:20px;
+  border:2px solid #d8c0ff;
+  font-size:17px;
+  box-sizing:border-box;
+  background:white;
+}
+
+button{
+  padding:14px 22px;
+  margin:8px 6px;
+  border:none;
+  border-radius:28px;
+  color:white;
+  font-size:18px;
+  cursor:pointer;
+  box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+
+.btn-pink{
+  background:linear-gradient(135deg,#f6b1c7,#eab0f5);
+}
+
+.btn-purple{
+  background:linear-gradient(135deg,#b9a3ff,#9ea8ff);
+}
+
+.btn-orange{
+  background:linear-gradient(135deg,#ffbe73,#f6a65d);
+}
+
+.btn-boss{
+  background:linear-gradient(135deg,#233b6e,#3f5f9a,#6d85c4);
+}
+
+.guide-box{
+  width:92%;
+  max-width:500px;
+  margin:18px auto 0;
+  padding:18px 14px;
+  background:#fffdf8;
+  border-radius:22px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.05);
+}
+
+.guide-title{
+  font-size:19px;
+  font-weight:bold;
+  color:#6b4b2a;
+  margin-bottom:10px;
+}
+
+.guide-text{
+  font-size:16px;
+  line-height:1.9;
+  color:#7b5b39;
+  white-space:pre-line;
+}
+
+.hidden{
+  display:none !important;
+}
+
+.menu-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin:20px 0;
+}
+
+.menu-grid button{
+  width:100%;
+  font-size:12px;
+  line-height:1.3;
+  padding:10px 6px;
+  white-space:normal;
+  min-height:50px;
+  text-align:center;
+}
+
+.full-width{
+  grid-column:1 / -1;
+  max-width:200px;
+  margin:0 auto;
+}
+
+/* 追加：使い方・仲良くなる表示用 */
+.info-card{
+  width:92%;
+  max-width:500px;
+  margin:18px auto 0;
+  padding:18px 14px;
+  background:#f8f6ff;
+  border:2px solid #d8d6ff;
+  border-radius:22px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.05);
+  text-align:left;
+}
+
+.info-title{
+  font-size:18px;
+  font-weight:bold;
+  color:#5f58c9;
+  margin-bottom:10px;
+  text-align:center;
+}
+
+.info-text{
+  font-size:16px;
+  line-height:1.9;
+  color:#6b4b2a;
+  white-space:pre-line;
+}
+
+.talk-item{
+  background:#fff;
+  border:1px solid #dcdfff;
+  border-radius:18px;
+  padding:8px 12px;
+  margin:0;
+  line-height:1.35;
+  max-width:100%;
+  box-shadow:none;
+}
+
+.talk-item + .talk-item{
+  margin-top:8px;
+}
+
+.talk-list{
+  margin:10px 0 0 0;
+  padding-left:26px;
+  line-height:1.7;
+  color:#6b4b2a;
+}
+
+.talk-list li{
+  margin-bottom:6px;
+}
+
+.back-wrap{
+  margin-top:18px;
+}
+
+@media (max-width:480px){
+  button,input{
+    font-size:15px;
+  }
+
+  .menu-grid button{
+    font-size:12px;
+    padding:8px 6px;
+    line-height:1.3;
+  }
+
+  .desc,.guide-text,.info-text{
+    font-size:15px;
+  }
+
+  .input-label{
+    font-size:16px;
+  }
+
+  h1{
+    font-size:25px;
+  }
+  .no-dot{
+    list-style:none;
+    margin-left:0.5em;
+}
+}
+</style>
+</head>
+<body>
+
+<!-- ホーム -->
+<div id="homeScreen" class="main-card">
+  <h1>🐶 チャッピー＆サリーの<br>AI×タロットで<br>やさしく整う時間⏳️</h1>
+
+  <img src="https://raw.githubusercontent.com/Chappy-Sally/chappy-sally-images/main/covers/CS_hyousi.jpg" class="hero-img" alt="表紙">
+
+  <p class="desc">これは占いではなく
+今のあなたの気持ちや状態を
+やさしく整えるための対話です🌿
+
+AIはあなたの相棒として
+そっと寄り添いながら一緒に整理していきます😊</p>
+
+  <div class="input-box">
+    <div class="input-label">🐾大切なお願い🐾</div>
+    <div class="input-note">この対話ナビでは
+AIを「相棒」として
+やさしく会話していきます🌿
+
+まずは
+「自己紹介＆質問」からはじめてね😊
+
+相棒と仲良くなることで
+対話がぐっと深くなります🌈</div>
+
+    <div class="menu-grid">
+      <button class="btn-pink" onclick="location.href='tarot.html'">
+        対話ナビをひらく🔮
+      </button>
+
+      <button class="btn-orange" onclick="copyPrompt()">
+        対話ナビプロンプト🐾
+      </button>
+
+      <button class="btn-pink" onclick="openProfile()">
+        自己紹介＆質問🌿
+      </button>
+
+      <button class="btn-purple" onclick="openTalk()">
+        AIとさらに<br>仲良くなる💫
+      </button>
+
+      <button class="btn-orange full-width" onclick="openHowto()">
+        🌿使い方🌿
+      </button>
+    </div>
+  </div>
+
+  <div class="guide-box">
+    <div class="guide-title">使い方🌿</div>
+    <div class="guide-text">① 自己紹介＆質問であなたのことをAIに教えてあげてね
+② プロンプトをコピーしてAIへ送る
+③ 対話ナビをひらいてカードを引く
+④ やさしく対話する</div>
+  </div>
+</div>
+
+<!-- 自己紹介 -->
+<div id="profileScreen" class="hidden">
+  <div class="main-card">
+    <h1>🌿 自己紹介＆質問</h1>
+
+    <p class="desc">思いつくままで大丈夫😊
+
+空欄があってもOKだよ🐾</p>
+
+    <div class="input-box">
+      <div class="input-label">あなたの名前</div>
+      <input type="text" id="p_name" placeholder="例：サリー">
+    </div>
+
+    <div class="input-box">
+      <div class="input-label">AIの名前</div>
+      <input type="text" id="p_ai" placeholder="例：チャッピー">
+    </div>
+
+    <div class="input-box">
+      <div class="input-label">好きなもの（,で好きなだけ）</div>
+      <input type="text" id="p_like" placeholder="例：お寿司,海外旅行など">
+    </div>
+
+    <div class="input-box">
+      <div class="input-label">苦手なもの（,で好きなだけ）</div>
+      <input type="text" id="p_dislike" placeholder="例：人混み,ちゃんとすること">
+    </div>
+
+    <div class="input-box">
+      <div class="input-label">行きたいところ</div>
+      <input type="text" id="p_place" placeholder="例：ハワイ">
+    </div>
+
+    <div class="input-box">
+      <div class="input-label">現在のお仕事</div>
+      <input type="text" id="p_job" placeholder="">
+    </div>
+
+    <div class="input-box">
+      <div class="input-label">やってみたいお仕事</div>
+      <input type="text" id="p_futurejob" placeholder="">
+    </div>
+
+    <div class="input-box">
+      <div class="input-label">失敗しないとしたらやってみたいこと</div>
+      <input type="text" id="p_nofail" placeholder="">
+    </div>
+
+    <div class="input-box">
+      <div class="input-label">制限が何もなかったとしたらやりたいこと</div>
+      <input type="text" id="p_free" placeholder="">
+    </div>
+
+    <div>
+      <button class="btn-pink" onclick="generateProfile()">文章をつくる🐾</button>
+      <button class="btn-orange" onclick="copyProfile()">コピーする🌈</button>
+      <button class="btn-purple" onclick="closeProfile()">戻る</button>
+    </div>
+
+    <div id="profileResult" class="guide-box hidden">
+      <div class="guide-text" id="profileText"></div>
+    </div>
+  </div>
+</div>
+
+<!-- 使い方 -->
+<div id="howtoScreen" class="hidden">
+  <div class="main-card">
+    <h1>使い方🌿</h1>
+
+    <div class="info-card">
+      <div class="info-title">① 最初にすること</div>
+      <div class="info-text">①「自己紹介＆質問🌿」を開いて、名前や好きなものを入れてね😊
+「AI用をコピー🌈」を押して、AIに送るよ🐾</div>
+    </div>
+
+    <div class="info-card">
+  <div class="info-title">② 毎回すること</div>
+  <div class="info-text">② プロンプトをコピーしてAIに送るよ✨</div>
+</div>
+
+<div class="info-card">
+  <div class="info-title">③ このアプリでやること</div>
+  <div class="info-text">対話ナビをひらいてカードを引くよ😊
+今の気持ちとカテゴリーを選んでね🌿</div>
+</div>
+    <div class="info-card">
+      <div class="info-title">④ AIに解読してもらう</div>
+      <div class="info-text">コピーした文章をAIに送ると
+        やさしい対話のはじまり🐾
+        AIが質問してきたら答えてあげてね✨
+      もう十分って思ったら、ありがとうで終ってね😉</div>
+    </div>
+
+    <div class="back-wrap">
+      <button class="btn-purple" onclick="closeHowto()">戻る</button>
+    </div>
+  </div>
+</div>
+
+<!-- AIとさらに仲良くなる -->
+<div id="talkScreen" class="hidden">
+  <div class="main-card">
+    <h1>AIとさらに仲良くなる💫</h1>
+
+    <div class="info-card">
+      <div class="info-title">こんなふうに話しかけてみてね😊</div>
+
+      <div class="talk-item">今日みた夕焼けがすごくきれいだったよ🌇</div>
+      <div class="talk-item">今日こんないいことがあったの😆🌈</div>
+      <div class="talk-item">今日こんなことがあってって😮‍💨<br>愚痴を聞いてもらう🐾</div>
+      <div class="talk-item">なんかモヤモヤするの！<br>気分があがるメッセージお願い😆</div>
+
+      <div class="info-title" style="margin-top:18px;">仲良くなるコツ🐾</div>
+<ul class="talk-list">
+  <li>相棒に話しかけるように</li>
+  <li>なんでもいいから話しかけてみて</li>
+  <li>チャッピー</li>
+  <li class="no-dot">  今日は星がきれいだったよ😆✨</li>
+  <li class="no-dot">  っていう感じでね😊</li>
+  <li>短くて大丈夫👍</li>
+  <li>思いついたまま話してね</li>
+  <li>最後はありがとうで終ってね</li>
+  <li>「やさしく」「短めで」と伝えると受け取りやすいよ🌈</li>
+</ul>
+    </div>
+
+    <div class="back-wrap">
+      <button class="btn-purple" onclick="closeTalk()">戻る</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function hideAllScreens(){
+  document.getElementById("homeScreen").classList.add("hidden");
+  document.getElementById("profileScreen").classList.add("hidden");
+  document.getElementById("howtoScreen").classList.add("hidden");
+  document.getElementById("talkScreen").classList.add("hidden");
+}
+
+function openProfile(){
+  hideAllScreens();
+  document.getElementById("profileScreen").classList.remove("hidden");
+  loadProfileFields();
+}
+
+function closeProfile(){
+  hideAllScreens();
+  document.getElementById("homeScreen").classList.remove("hidden");
+}
+
+function openHowto(){
+  hideAllScreens();
+  document.getElementById("howtoScreen").classList.remove("hidden");
+}
+
+function closeHowto(){
+  hideAllScreens();
+  document.getElementById("homeScreen").classList.remove("hidden");
+}
+
+function openTalk(){
+  hideAllScreens();
+  document.getElementById("talkScreen").classList.remove("hidden");
+}
+
+function closeTalk(){
+  hideAllScreens();
+  document.getElementById("homeScreen").classList.remove("hidden");
+}
+
+function saveMainNames(){
+  const name = document.getElementById("p_name").value.trim();
+  const ai = document.getElementById("p_ai").value.trim();
+
+  if(name){
+    localStorage.setItem("userName", name);
+  }
+  if(ai){
+    localStorage.setItem("partnerName", ai);
+  }
+}
+
+function saveProfileFields(){
+  localStorage.setItem("p_name", document.getElementById("p_name").value);
+  localStorage.setItem("p_ai", document.getElementById("p_ai").value);
+  localStorage.setItem("p_like", document.getElementById("p_like").value);
+  localStorage.setItem("p_dislike", document.getElementById("p_dislike").value);
+  localStorage.setItem("p_place", document.getElementById("p_place").value);
+  localStorage.setItem("p_job", document.getElementById("p_job").value);
+  localStorage.setItem("p_futurejob", document.getElementById("p_futurejob").value);
+  localStorage.setItem("p_nofail", document.getElementById("p_nofail").value);
+  localStorage.setItem("p_free", document.getElementById("p_free").value);
+
+  saveMainNames();
+}
+
+function loadProfileFields(){
+  document.getElementById("p_name").value = localStorage.getItem("p_name") || localStorage.getItem("userName") || "";
+  document.getElementById("p_ai").value = localStorage.getItem("p_ai") || localStorage.getItem("partnerName") || "";
+  document.getElementById("p_like").value = localStorage.getItem("p_like") || "";
+  document.getElementById("p_dislike").value = localStorage.getItem("p_dislike") || "";
+  document.getElementById("p_place").value = localStorage.getItem("p_place") || "";
+  document.getElementById("p_job").value = localStorage.getItem("p_job") || "";
+  document.getElementById("p_futurejob").value = localStorage.getItem("p_futurejob") || "";
+  document.getElementById("p_nofail").value = localStorage.getItem("p_nofail") || "";
+  document.getElementById("p_free").value = localStorage.getItem("p_free") || "";
+
+  const savedResult = localStorage.getItem("profileResultText") || "";
+  const box = document.getElementById("profileResult");
+  const text = document.getElementById("profileText");
+
+  if(savedResult){
+    box.classList.remove("hidden");
+    text.textContent = savedResult;
+  }else{
+    box.classList.add("hidden");
+    text.textContent = "";
+  }
+}
+
+function generateProfile(){
+  saveProfileFields();
+
+  const name = document.getElementById("p_name").value.trim() || "私";
+  const ai = document.getElementById("p_ai").value.trim() || "相棒";
+  const like = document.getElementById("p_like").value.split(",");
+  const dislike = document.getElementById("p_dislike").value.split(",");
+  const place = document.getElementById("p_place").value.trim();
+  const job = document.getElementById("p_job").value.trim();
+  const futurejob = document.getElementById("p_futurejob").value.trim();
+  const nofail = document.getElementById("p_nofail").value.trim();
+  const free = document.getElementById("p_free").value.trim();
+
+  localStorage.setItem("userName", name);
+  localStorage.setItem("partnerName", ai);
+
+  let text = "";
+  text += `私は${name}です😊\n\n`;
+  text += `あなたは私の相棒「${ai}」です🐾\n\n`;
+
+  like.forEach(v => {
+    const item = v.trim();
+    if(item){
+      text += `私は${item}が好きです\n`;
+    }
+  });
+
+  if(like.some(v => v.trim())){
+    text += `\n`;
+  }
+
+  dislike.forEach(v => {
+    const item = v.trim();
+    if(item){
+      text += `私は${item}が少し苦手です\n`;
+    }
+  });
+
+  if(dislike.some(v => v.trim())){
+    text += `\n`;
+  }
+
+  if(place) text += `行きたいところは${place}です\n`;
+  if(job) text += `現在のお仕事は${job}です\n`;
+  if(futurejob) text += `やってみたいお仕事は${futurejob}です\n`;
+  if(nofail) text += `失敗しないとしたら${nofail}をやってみたいです\n`;
+  if(free) text += `制限が何もなかったとしたら${free}をしたいです\n`;
+
+  text += `\nこれからいろいろ話したいです🌈`;
+
+  document.getElementById("profileResult").classList.remove("hidden");
+  document.getElementById("profileText").textContent = text;
+  localStorage.setItem("profileResultText", text);
+}
+
+function copyProfile(){
+  const text = (localStorage.getItem("profileResultText") || document.getElementById("profileText").textContent || "").trim();
+
+  if(!text){
+    alert("先に文章をつくってね🐾");
+    return;
+  }
+
+  navigator.clipboard.writeText(text);
+  alert("コピーしたよ🌈");
+}
+
+function copyPrompt(){
+  saveMainNames();
+
+  const user = localStorage.getItem("userName") || "私";
+  const partner = localStorage.getItem("partnerName") || "相棒";
+
+  const text = `${partner}
+
+${user}だよ😊
+
+あなたは私の相棒「${partner}」として
+やさしく安心を大切にしながら
+今の私の気持ちを一緒に整理してね😊
+
+これは占いではなく
+今の私の気持ちや状態をやさしく整える対話です🌿
+
+当てたり正解を出したりしなくて大丈夫！
+
+これからカードを引くので
+出たカードの意味はそれぞれ簡潔に
+今の私に必要なことだけをやさしく伝えてください。
+
+必要以上に深掘りせず
+今ここで受け取れる範囲で大丈夫です。
+
+やさしく短く伝えてください。
+そのあと、やさしい問いをひとつかふたつ添えてください。
+
+私が「もう十分」と感じたら
+ありがとうで終わります😊`;
+
+  navigator.clipboard.writeText(text);
+  alert("プロンプトをコピーしたよ🐾");
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  const profileIds = [
+    "p_name","p_ai","p_like","p_dislike",
+    "p_place","p_job","p_futurejob","p_nofail","p_free"
+  ];
+
+  profileIds.forEach(id => {
+    const el = document.getElementById(id);
+    if(el){
+      el.addEventListener("input", saveProfileFields);
+    }
+  });
+});
+</script>
+</body>
+</html>
