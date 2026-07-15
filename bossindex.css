@@ -50,7 +50,11 @@ h1{
   box-shadow:0 4px 10px rgba(0,0,0,0.05);
 }
 
-.guide-box{ background:#fffdf8; }
+.guide-box{
+  max-width:500px;
+  margin:12px auto 0;
+  padding:12px 14px;
+}
 
 .input-label,.guide-title{
   font-size:18px;
@@ -62,8 +66,9 @@ h1{
 .guide-text{
   font-size:15px;
   color:#7b5b39;
-  line-height:1.8;
+  line-height:1.6;
   white-space:pre-line;
+  margin:8px 0;
 }
 
 input{
