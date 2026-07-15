@@ -26,8 +26,8 @@ h1{
   margin:0;
 }
 
-.header-img,.kami-img{
-.header-img{
+.header-img,
+.kami-img{
   width:90%;
   max-width:460px;
   border-radius:22px;
@@ -35,12 +35,12 @@ h1{
   display:block;
   box-shadow:0 8px 18px rgba(0,0,0,0.12);
 }
+
 .desc{
   font-size:18px;
-  line-height:1.7;
-  margin:18px auto 20px;
+  line-height:1.6;
+  margin:12px auto 16px;
   color:#7b5b39;
-  white-space:pre-line;
 }
 
 .name-note{
