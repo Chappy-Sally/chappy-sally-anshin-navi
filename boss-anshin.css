@@ -285,3 +285,47 @@ button{
   flex-direction:column;
   gap:12px;
 }
+
+.draw-area{
+  width:92%;
+  max-width:500px;
+  margin:20px auto 0;
+  padding:18px 14px;
+  background:#fffafd;
+  border-radius:24px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.06);
+  box-sizing:border-box;
+}
+
+.draw-title{
+  font-size:20px;
+  font-weight:bold;
+  color:#6b4b2a;
+  margin-bottom:6px;
+}
+
+.draw-note{
+  font-size:15px;
+  color:#8a7563;
+  margin:0 0 14px;
+}
+
+.draw-buttons{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+}
+
+.draw-buttons .boss-btn{
+  width:46%;
+  min-width:0;
+  margin:0;
+  padding:14px 8px;
+  font-size:18px;
+  background:linear-gradient(
+    135deg,
+    #d9c7f6,
+    #b9a2eb,
+    #9d8adf
+  );
+}
