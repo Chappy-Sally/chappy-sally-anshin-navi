@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>チャッピー＆サリーのしあわせ深呼吸</title>
+
+  <style>
+    body{
+      font-family:"Hiragino Kaku Gothic ProN", sans-serif;
+      text-align:center;
+      background:#fff0f5;
+      color:#6b4b2a;
+      margin:0;
+      padding:20px 14px 40px;
+    }
+
+    .main-card{
+      width:92%;
+      max-width:620px;
+      margin:0 auto;
+      background:rgba(255,255,255,0.92);
+      border-radius:28px;
+      padding:24px 16px 28px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    h1{
+      font-size:28px;
+      line-height:1.4;
+      margin:0 0 18px;
+      color:#6b4b2a;
+    }
+
+    .breath-img{
+      width:94%;
+      max-width:520px;
+      border-radius:22px;
+      display:block;
+      margin:0 auto 22px;
+      box-shadow:0 8px 18px rgba(0,0,0,0.12);
+    }
+
+    .message-box{
+      width:88%;
+      max-width:480px;
+      margin:0 auto 18px;
+      padding:18px 14px;
+      background:#fffdf8;
+      border-radius:22px;
+      box-shadow:0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .message{
+      font-size:18px;
+      line-height:1.8;
+      white-space:pre-line;
+    }
+
+    .breath-btn,
+    .back-btn{
+      padding:14px 24px;
+      margin:8px 6px;
+      border:none;
+      border-radius:30px;
+      color:white;
+      font-size:18px;
+      cursor:pointer;
+      box-shadow:0 4px 10px rgba(0,0,0,0.08);
+    }
+
+    .breath-btn{
+      background:linear-gradient(135deg,#8fd8c8,#9fc8ff,#c5b3ff);
+    }
+
+    .back-btn{
+      background:linear-gradient(135deg,#ffbe73,#f6a65d);
+    }
+
+    @media(max-width:480px){
+      h1{
+        font-size:24px;
+      }
+
+      .message{
+        font-size:16px;
+      }
+
+      .breath-btn,
+      .back-btn{
+        font-size:16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="main-card">
+
+    <h1>🌿 チャッピー＆サリーの<br>しあわせ深呼吸 🌈</h1>
+
+    <img
+      src="https://raw.githubusercontent.com/Chappy-Sally/chappy-sally-images/main/covers/CS_shinkokyu.png"
+      class="breath-img"
+      alt="チャッピー＆サリーのしあわせ深呼吸"
+    >
+
+    <div class="message-box">
+      <div class="message" id="breathMessage">うまくできなくても大丈夫😊
+
+今は何も考えなくて大丈夫🌿
+
+ゆっくり
+息を吸って〜
+
+そして
+ふ〜っと吐いてみよう🌈</div>
+    </div>
+
+    <button class="breath-btn" onclick="startBreathing()">
+      🌿 深呼吸をはじめる
+    </button>
+
+    <button class="back-btn" onclick="location.href='index.html'">
+      🏠 安心ナビに戻る
+    </button>
+
+  </div>
+
+  <script>
+    const messages = [
+      "ゆっくり\n息を吸って〜🌿",
+      "そのまま少しだけ\n止めてみよう😊",
+      "ふ〜っと\nゆっくり吐いて〜🌈",
+      "私は大丈夫😊\n今日も大丈夫🌿"
+    ];
+
+    let step = 0;
+    let timer = null;
+
+    function startBreathing(){
+      const message = document.getElementById("breathMessage");
+
+      clearInterval(timer);
+      step = 0;
+      message.textContent = messages[step];
+
+      timer = setInterval(() => {
+        step++;
+
+        if(step >= messages.length){
+          clearInterval(timer);
+          message.textContent = "しあわせ深呼吸\nできました😊🌈\n\nうふふっ🤭✨";
+          return;
+        }
+
+        message.textContent = messages[step];
+      }, 4000);
+    }
+  </script>
+
+</body>
+</html>
