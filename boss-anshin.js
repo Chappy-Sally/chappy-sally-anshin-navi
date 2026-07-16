@@ -29,13 +29,13 @@ function getRandomItems(list,count){
 
 function drawBossOne(){
   selectedCards = getRandomItems(bossCards,1);
-  showCards(["今回のラスボス"]);
+  showCards(["今の思い込み"]);
   checkReady();
 }
 
 function drawBossThree(){
   selectedCards = getRandomItems(bossCards,3);
-  showCards(["今のラスボス","隠れラスボス","安心に戻るヒント"]);
+  showCards(["今の思い込み","隠れ思い込み","安心に戻るヒント"]);
   checkReady();
 }
 
@@ -54,7 +54,7 @@ function showCards(labels){
 
     const label = document.createElement("div");
     label.className = "card-label";
-    label.textContent = labels[index] || "ラスボス";
+    label.textContent = labels[index] || "思い込み";
 
     const name = document.createElement("div");
     name.className = "card-name";
@@ -77,11 +77,11 @@ function checkReady(){
 
 function buildCardText(){
   if(selectedCards.length === 1){
-    return `今回のラスボス：${selectedCards[0].name}`;
+    return `今の思い込み：${selectedCards[0].name}`;
   }
 
   return selectedCards.map((card,index) => {
-    const labels = ["今のラスボス","隠れラスボス","安心に戻るヒント"];
+    const labels = ["今の思い込み","隠れ思い込み","安心に戻るヒント"];
     return `${labels[index]}：${card.name}`;
   }).join("\n");
 }
@@ -97,41 +97,17 @@ function buildPrompt(){
 
 ${user}だよ😊
 
-あなたは、私の安心できる相棒としてやさしく寄り添ってください。
-
-これは占いや断定ではなく、
-今の私の中にある「でも」「どうせ」「無理かも」という思い込みを
-やさしく整理するための対話です。
-
-ラスボスは敵ではなく、
-私を守るために生まれた反応や思い込みです。
+カードを引いたよ🌿
 
 【テーマ】
 ${theme}
 
-【出てきた思い込み・ブレーキ】
+【今のブレーキ】
 ${blocks}
 
-【引いたラスボスカード】
+【カード】
 ${buildCardText()}
-
-この内容をもとに、
-
-1. 今の私に起きていること
-2. このラスボスが守ろうとしていたもの
-3. 本当はどうしたかったのか
-4. 今の私に合うやさしい見方
-5. 安心して進むための小さな一歩
-6. 最後にやさしいひとこと
-
-この順番で、
-否定せず、決めつけず、安心できる言葉でまとめてください。
-
-無理にポジティブ変換せず、
-今の私が受け取れる形でお願いします。
-
-AIの答えは絶対ではなく、
-今の私をやさしく整理するためのヒントとして受け取れる形でお願いします。`;
+`;
 }
 
 function copyPrompt(){
