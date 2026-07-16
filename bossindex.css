@@ -52,21 +52,21 @@ h1{
 
 .guide-box{
   max-width:500px;
-  margin:12px auto 0;
-  padding:12px 14px;
+  margin:10px auto 0;
+  padding:10px 14px;
 }
 
 .input-label,.guide-title{
   font-size:18px;
   color:#6b4b2a;
-  margin-bottom:8px;
+  margin-bottom:6px;
   font-weight:bold;
 }
 
 .guide-text{
   font-size:15px;
   color:#7b5b39;
-  line-height:1.6;
+  line-height:1.5.5;
   white-space:pre-line;
   margin:8px 0;
 }
@@ -84,7 +84,7 @@ input{
 
 button{
   padding:14px 22px;
-  margin:8px 6px;
+  margin:12px 6px 2px;
   border:none;
   border-radius:28px;
   color:white;
