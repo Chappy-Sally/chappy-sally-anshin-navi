@@ -1,58 +1,397 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>安心にもどるナビ</title>
-<link rel="stylesheet" href="boss-anshin.css">
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>安心にもどるナビ</title>
+
+  <link
+    rel="stylesheet"
+    href="boss-anshin.css"
+  >
 </head>
 
 <body>
 
-<div class="main-card">
-  <h1>💫 安心にもどるナビ 💫</h1>
+  <div class="main-card">
 
-  <p class="desc">
-    「でも」「どうせ」「無理かも」の奥にある気持ちを、<br>
-    やさしく見つけて安心にもどるナビです。
-  </p>
+    <!-- 入力画面 -->
+    <div id="inputScreen">
 
-  <div class="input-box">
-    <label>叶えたいこと・テーマ</label>
-    <input id="theme" placeholder="例：私は100万円受け取りたい">
+      <h1>💫 安心にもどるナビ 💫</h1>
+
+      <p class="desc">
+        「でも」「どうせ」「無理かも」の奥にある気持ちを、<br>
+        やさしく見つけて安心にもどるナビです😊
+      </p>
+
+
+      <div class="input-box">
+        <label for="theme">
+          叶えたいこと・テーマ
+        </label>
+
+        <input
+          id="theme"
+          type="text"
+          placeholder="例：私はあと20万円欲しい"
+        >
+      </div>
+
+
+      <div class="input-box">
+
+        <div class="input-title">
+          今の気持ちに近いものを選んでね🌿
+        </div>
+
+        <p class="input-note">
+          いくつ選んでも大丈夫です😊
+        </p>
+
+        <div class="check-list">
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              class="block-check"
+              value="でも時間がない"
+            >
+            <span>でも時間がない</span>
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              class="block-check"
+              value="でもお金がない"
+            >
+            <span>でもお金がない</span>
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              class="block-check"
+              value="でも働きに行けない"
+            >
+            <span>でも働きに行けない</span>
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              class="block-check"
+              value="どうせ私には無理"
+            >
+            <span>どうせ私には無理</span>
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              class="block-check"
+              value="どうせ変わらない"
+            >
+            <span>どうせ変わらない</span>
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              class="block-check"
+              value="どうせ続かない"
+            >
+            <span>どうせ続かない</span>
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              class="block-check"
+              value="失敗したくない"
+            >
+            <span>失敗したくない</span>
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              class="block-check"
+              value="人の目が気になる"
+            >
+            <span>人の目が気になる</span>
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              class="block-check"
+              value="ちゃんとしなきゃ"
+            >
+            <span>ちゃんとしなきゃ</span>
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              class="block-check"
+              value="やらなきゃ"
+            >
+            <span>やらなきゃ</span>
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              class="block-check"
+              value="完璧でなきゃ"
+            >
+            <span>完璧でなきゃ</span>
+          </label>
+
+          <label class="check-item">
+            <input
+              type="checkbox"
+              class="block-check"
+              value="まだ足りない"
+            >
+            <span>まだ足りない</span>
+          </label>
+
+        </div>
+      </div>
+
+
+      <div class="input-box">
+        <label for="customBlocks">
+          自分の言葉も書けます😊
+        </label>
+
+        <textarea
+          id="customBlocks"
+          placeholder="例：採用されない気がする。家でできる仕事が見つからない。"
+        ></textarea>
+      </div>
+
+
+      <!-- JavaScriptでチェック項目と自由入力をまとめて入れる場所 -->
+      <textarea
+        id="blocks"
+        class="hidden"
+        aria-hidden="true"
+      ></textarea>
+
+
+      <div class="button-group">
+
+        <button
+          class="boss-btn"
+          onclick="startDrawOne()"
+        >
+          安心にもどるカード<br>1枚引き
+        </button>
+
+        <button
+          class="boss-btn"
+          onclick="startDrawThree()"
+        >
+          安心にもどるカード<br>3枚引き
+        </button>
+
+      </div>
+
+
+      <div class="button-group">
+
+        <button
+          class="back-btn"
+          onclick="location.href='https://chappy-sally.github.io/chappy-sally-anshin-navi/'"
+        >
+          🏠 安心ナビに戻る
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- カード結果画面 -->
+    <div
+      id="cardScreen"
+      class="hidden"
+    >
+
+      <h1>🌈 安心にもどるカード 🌈</h1>
+
+      <p class="desc">
+        今のあなたに出てきたカードを<br>
+        やさしく眺めてみてね😊
+      </p>
+
+
+      <div
+        id="cardsArea"
+        class="cards-area"
+      ></div>
+
+
+      <button
+        id="copyBtn"
+        class="copy-btn"
+        onclick="copyPrompt()"
+        disabled
+      >
+        🐶 チャッピーGPTへ送る文章をコピー
+      </button>
+
+
+      <p class="note">
+        AIの答えは絶対ではなく、<br>
+        今の自分をやさしく整理するためのヒントです🌿
+      </p>
+
+
+      <div class="button-group">
+
+        <button
+          class="back-btn"
+          onclick="backToInput()"
+        >
+          ↩️ 入力画面に戻る
+        </button>
+
+        <button
+          class="back-btn"
+          onclick="location.href='https://chappy-sally.github.io/chappy-sally-anshin-navi/'"
+        >
+          🏠 安心ナビに戻る
+        </button>
+
+      </div>
+
+    </div>
+
   </div>
 
-  <div class="input-box">
-    <label>出てきた「でも」「どうせ」</label>
-    <textarea id="blocks" placeholder="例：でも働けない。どうせ私には無理。そんな商品がない。"></textarea>
-  </div>
 
-  <div class="button-group">
-    <button class="boss-btn" onclick="drawBossOne()">思い込み1枚引き</button>
-    <button class="boss-btn" onclick="drawBossThree()">思い込み3枚引き</button>
-  </div>
+  <script src="boss-anshin.js"></script>
 
-  <div id="cardsArea" class="cards-area hidden"></div>
+  <script>
+    function collectBlocks(){
+      const selected = [];
 
-  <button id="copyBtn" class="copy-btn" onclick="copyPrompt()" disabled>
-    AIに送る文章をコピー
-  </button>
+      document
+        .querySelectorAll(".block-check:checked")
+        .forEach((checkbox) => {
+          selected.push(checkbox.value);
+        });
 
-  <p class="note">
-    AIの答えは絶対ではなく、今の自分をやさしく整理するためのヒントです。
-  </p>
+      const customText =
+        document
+          .getElementById("customBlocks")
+          .value
+          .trim();
 
-  <div class="button-group">
-  <button
-    class="back-btn"
-    onclick="location.href='https://chappy-sally.github.io/chappy-sally-anshin-navi/'"
-  >
-    🏠 安心ナビに戻る
-  </button>
-</div>
-  
-</div>
+      if(customText){
+        selected.push(customText);
+      }
 
-<script src="boss-anshin.js"></script>
+      const blocksText = selected.join("\n");
+
+      document.getElementById("blocks").value =
+        blocksText;
+
+      return blocksText;
+    }
+
+
+    function validateInputs(){
+      const theme =
+        document
+          .getElementById("theme")
+          .value
+          .trim();
+
+      const blocks = collectBlocks();
+
+      if(!theme){
+        alert("叶えたいこと・テーマを入れてね😊");
+        return false;
+      }
+
+      if(!blocks){
+        alert(
+          "今の気持ちに近いものを選ぶか、自分の言葉を入れてね🌿"
+        );
+
+        return false;
+      }
+
+      return true;
+    }
+
+
+    function openCardScreen(){
+      document
+        .getElementById("inputScreen")
+        .classList
+        .add("hidden");
+
+      document
+        .getElementById("cardScreen")
+        .classList
+        .remove("hidden");
+
+      window.scrollTo({
+        top:0,
+        behavior:"smooth"
+      });
+    }
+
+
+    function startDrawOne(){
+      if(!validateInputs()){
+        return;
+      }
+
+      openCardScreen();
+      drawBossOne();
+    }
+
+
+    function startDrawThree(){
+      if(!validateInputs()){
+        return;
+      }
+
+      openCardScreen();
+      drawBossThree();
+    }
+
+
+    function backToInput(){
+      document
+        .getElementById("cardScreen")
+        .classList
+        .add("hidden");
+
+      document
+        .getElementById("inputScreen")
+        .classList
+        .remove("hidden");
+
+      window.scrollTo({
+        top:0,
+        behavior:"smooth"
+      });
+    }
+  </script>
+
 </body>
 </html>
