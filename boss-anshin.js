@@ -1,56 +1,160 @@
-const bossImageBase =
-  "https://raw.githubusercontent.com/Chappy-Sally/chappy-sally-images/main/lassboss/";
+const anshinImageBase =
+  "https://raw.githubusercontent.com/Chappy-Sally/chappy-sally-images/main/anshin/";
 
-const bossCards = [
-  { name:"不安", file:"boss_anxiety.png" },
-  { name:"執着", file:"boss_attachment.png" },
-  { name:"比較", file:"boss_comparison.png" },
-  { name:"我慢ぐせ", file:"boss_endurance.png" },
-  { name:"失敗したくない", file:"boss_fear_of_failure.png" },
-  { name:"未来への不安", file:"boss_future_worry.png" },
-  { name:"あきらめ", file:"boss_give_up.png" },
-  { name:"罪悪感", file:"boss_guilt.png" },
-  { name:"遠慮", file:"boss_hesitation.png" },
-  { name:"焦り", file:"boss_impatience.png" },
-  { name:"自信がない", file:"boss_low_confidence.png" },
-  { name:"お金の不安", file:"boss_money.png" },
-  { name:"義務感", file:"boss_obligation.png" },
-  { name:"がんばりすぎ", file:"boss_overwork.png" },
-  { name:"過去へのとらわれ", file:"boss_past.png" },
-  { name:"人の目が気になる", file:"boss_people_eyes.png" },
-  { name:"完璧にしなきゃ", file:"boss_perfection.png" }
+const anshinCards = [
+  {
+    name:"人の目が気になる",
+    file:"as_people_eyes.png"
+  },
+  {
+    name:"完璧でなきゃ",
+    file:"as_perfection.png"
+  },
+  {
+    name:"失敗したくない",
+    file:"as_fear_of_failure.png"
+  },
+  {
+    name:"自信がない",
+    file:"as_low_confidence.png"
+  },
+  {
+    name:"比較しちゃう",
+    file:"as_comparison.png"
+  },
+  {
+    name:"焦っちゃう",
+    file:"as_impatience.png"
+  },
+  {
+    name:"不安でしかたない",
+    file:"as_anxiety.png"
+  },
+  {
+    name:"執着しちゃう",
+    file:"as_attachment.png"
+  },
+  {
+    name:"過去が気になる",
+    file:"as_past.png"
+  },
+  {
+    name:"未来が心配",
+    file:"as_future_worry.png"
+  },
+  {
+    name:"お金が不安",
+    file:"as_money.png"
+  },
+  {
+    name:"頑張りすぎちゃう",
+    file:"as_overwork.png"
+  },
+  {
+    name:"悪い気がする",
+    file:"as_guilt.png"
+  },
+  {
+    name:"あきらめ「もうムリ…」",
+    file:"as_give_up.png"
+  },
+  {
+    name:"我慢しなきゃー",
+    file:"as_endurance.png"
+  },
+  {
+    name:"やらなきゃっ",
+    file:"as_obligation.png"
+  },
+  {
+    name:"遠慮します",
+    file:"as_hesitation.png"
+  },
+  {
+    name:"私に戻る",
+    file:"as_return.png"
+  },
+  {
+    name:"どうせ私なんて…",
+    file:"as_hopeless.png"
+  },
+  {
+    name:"決められない",
+    file:"as_indecision.png"
+  },
+  {
+    name:"思い込んじゃう",
+    file:"as_belief.png"
+  },
+  {
+    name:"認められたい！",
+    file:"as_need_approval.png"
+  },
+  {
+    name:"ちゃんとしなきゃ",
+    file:"as_should.png"
+  }
 ];
 
 let selectedCards = [];
 
-function getRandomItems(list,count){
-  return [...list].sort(() => Math.random() - 0.5).slice(0,count);
+
+/* カードをランダムに選ぶ */
+function getRandomItems(list, count){
+  return [...list]
+    .sort(() => Math.random() - 0.5)
+    .slice(0, count);
 }
 
+
+/* 安心カードを1枚引く */
 function drawBossOne(){
-  selectedCards = getRandomItems(bossCards,1);
-  showCards(["今の思い込み"]);
+  selectedCards = getRandomItems(anshinCards, 1);
+
+  showCards([
+    "今の思い込み"
+  ]);
+
   checkReady();
 }
 
+
+/* 安心カードを3枚引く */
 function drawBossThree(){
-  selectedCards = getRandomItems(bossCards,3);
-  showCards(["今の思い込み","隠れ思い込み","安心に戻るヒント"]);
+  selectedCards = getRandomItems(anshinCards, 3);
+
+  showCards([
+    "今の思い込み",
+    "隠れ思い込み",
+    "安心に戻るヒント"
+  ]);
+
   checkReady();
 }
 
+
+/* 引いたカードを画面に表示する */
 function showCards(labels){
   const area = document.getElementById("cardsArea");
+
+  if(!area){
+    return;
+  }
+
   area.innerHTML = "";
   area.classList.remove("hidden");
 
-  selectedCards.forEach((card,index) => {
+  selectedCards.forEach((card, index) => {
     const box = document.createElement("div");
     box.className = "mini-card";
 
     const img = document.createElement("img");
-    img.src = bossImageBase + card.file;
+    img.src = anshinImageBase + card.file;
     img.alt = card.name;
+
+    img.onerror = function(){
+      this.alt = card.name + "の画像を読み込めませんでした";
+    };
 
     const label = document.createElement("div");
     label.className = "card-label";
@@ -63,37 +167,72 @@ function showCards(labels){
     box.appendChild(img);
     box.appendChild(label);
     box.appendChild(name);
+
     area.appendChild(box);
   });
 }
 
+
+/* 入力とカードがそろったらコピーボタンを使えるようにする */
 function checkReady(){
-  const theme = document.getElementById("theme").value.trim();
-  const blocks = document.getElementById("blocks").value.trim();
+  const themeInput = document.getElementById("theme");
+  const blocksInput = document.getElementById("blocks");
   const copyBtn = document.getElementById("copyBtn");
 
-  copyBtn.disabled = !(theme && blocks && selectedCards.length > 0);
+  if(!themeInput || !blocksInput || !copyBtn){
+    return;
+  }
+
+  const theme = themeInput.value.trim();
+  const blocks = blocksInput.value.trim();
+
+  copyBtn.disabled =
+    !(theme && blocks && selectedCards.length > 0);
 }
 
+
+/* 引いたカードをコピー用の文章にする */
 function buildCardText(){
   if(selectedCards.length === 1){
     return `今の思い込み：${selectedCards[0].name}`;
   }
 
-  return selectedCards.map((card,index) => {
-    const labels = ["今の思い込み","隠れ思い込み","安心に戻るヒント"];
-    return `${labels[index]}：${card.name}`;
-  }).join("\n");
+  const labels = [
+    "今の思い込み",
+    "隠れ思い込み",
+    "安心に戻るヒント"
+  ];
+
+  return selectedCards
+    .map((card, index) => {
+      return `${labels[index]}：${card.name}`;
+    })
+    .join("\n");
 }
 
+
+/* チャッピーGPTへ貼る文章を作る */
 function buildPrompt(){
-  const theme = document.getElementById("theme").value.trim();
-  const blocks = document.getElementById("blocks").value.trim();
+  const themeInput = document.getElementById("theme");
+  const blocksInput = document.getElementById("blocks");
 
-  const partner = localStorage.getItem("partnerName") || "チャッピー";
-  const user = localStorage.getItem("userName") || "私";
+  const theme = themeInput
+    ? themeInput.value.trim()
+    : "";
 
-  return `${partner}
+  const blocks = blocksInput
+    ? blocksInput.value.trim()
+    : "";
+
+  const partner =
+    localStorage.getItem("partnerName") ||
+    "チャッピー";
+
+  const user =
+    localStorage.getItem("userName") ||
+    "私";
+
+  return `${partner}😊
 
 ${user}だよ😊
 
@@ -110,17 +249,36 @@ ${buildCardText()}
 `;
 }
 
+
+/* 作った文章をコピーする */
 function copyPrompt(){
   const text = buildPrompt();
 
-  navigator.clipboard.writeText(text).then(() => {
-    alert("チャッピーGPTへ貼る用コピーしたよ🐶💕");
-  }).catch(() => {
-    alert("コピーできませんでした。手動でコピーしてください🙏");
-  });
+  navigator.clipboard
+    .writeText(text)
+    .then(() => {
+      alert("チャッピーGPTへ貼る文章をコピーしたよ🐶💕");
+    })
+    .catch(() => {
+      alert(
+        "コピーできませんでした。手動でコピーしてください🙏"
+      );
+    });
 }
 
+
+/* 入力されるたびにコピーボタンを確認する */
 window.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("theme").addEventListener("input", checkReady);
-  document.getElementById("blocks").addEventListener("input", checkReady);
+  const themeInput = document.getElementById("theme");
+  const blocksInput = document.getElementById("blocks");
+
+  if(themeInput){
+    themeInput.addEventListener("input", checkReady);
+  }
+
+  if(blocksInput){
+    blocksInput.addEventListener("input", checkReady);
+  }
+
+  checkReady();
 });
