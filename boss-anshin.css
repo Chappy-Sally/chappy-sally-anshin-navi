@@ -180,3 +180,69 @@ button{
     font-size:20px;
   }
 }
+
+/* チェック項目を横並びにする */
+.check-list{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  margin-top:14px;
+}
+
+.check-item{
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap:12px;
+  width:100%;
+  font-size:18px;
+  font-weight:bold;
+  color:#6b4b2a;
+  text-align:left;
+  cursor:pointer;
+}
+
+.check-item input[type="checkbox"]{
+  width:22px;
+  height:22px;
+  margin:0;
+  flex-shrink:0;
+  accent-color:#8f86e8;
+}
+
+.check-item span{
+  display:block;
+  line-height:1.5;
+}
+
+
+/* カードを引くボタンを横並びにする */
+#inputScreen .button-group{
+  display:flex;
+  justify-content:center;
+  align-items:stretch;
+  flex-wrap:nowrap;
+  gap:12px;
+  margin-top:20px;
+}
+
+#inputScreen .boss-btn{
+  width:48%;
+  min-width:0;
+  margin:0;
+  padding:14px 8px;
+  font-size:16px;
+  line-height:1.5;
+}
+
+
+/* スマホがかなり細い場合だけ縦並び */
+@media(max-width:360px){
+  #inputScreen .button-group{
+    flex-wrap:wrap;
+  }
+
+  #inputScreen .boss-btn{
+    width:100%;
+  }
+}
