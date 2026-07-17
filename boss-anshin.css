@@ -329,3 +329,12 @@ button{
     #9d8adf
   );
 }
+
+.memory-btn{
+  background:linear-gradient(
+    135deg,
+    #b7df8a,
+    #8fcf78
+  );
+  color:white;
+}
