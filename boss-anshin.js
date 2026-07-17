@@ -224,26 +224,38 @@ function buildPrompt(){
     ? blocksInput.value.trim()
     : "";
 
-  const partner =
-    localStorage.getItem("partnerName") ||
-    "チャッピー";
+  const memoryChecks = JSON.parse(
+    localStorage.getItem("memoryChecks") || "[]"
+  );
 
-  const user =
-    localStorage.getItem("userName") ||
-    "私";
+  const memoryText =
+    localStorage.getItem("memoryText") || "";
 
-  return `${partner}😊
+  let memorySection = "";
 
-${user}だよ😊
+  if(memoryChecks.length > 0 || memoryText.trim()){
+    memorySection += `\n【子どもの頃や過去について】\n`;
 
-カードを引いたよ🌿
+    if(memoryChecks.length > 0){
+      memoryChecks.forEach(item => {
+        memorySection += `・${item}\n`;
+      });
+    }
+
+    if(memoryText.trim()){
+      memorySection += `\n【思い出したこと】\n`;
+      memorySection += `${memoryText.trim()}\n`;
+    }
+  }
+
+  return `カードを引いたよ🌿
 
 【テーマ】
 ${theme}
 
 【今のブレーキ】
 ${blocks}
-
+${memorySection}
 【カード】
 ${buildCardText()}
 `;
