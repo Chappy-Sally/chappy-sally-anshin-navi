@@ -441,8 +441,14 @@
 
     /* 思い出ナビへ進む */
     function goToMemory(){
-      saveAnshinInputs();
-      location.href = "omoide.html";
+  saveAnshinInputs();
+
+  sessionStorage.setItem(
+    "returnFromMemory",
+    "true"
+  );
+
+  location.href = "omoide.html";
     }
 
 
@@ -567,39 +573,66 @@
     }
 
 
-    /* ページを開いたときに復元する */
-    window.addEventListener(
-      "DOMContentLoaded",
-      () => {
-        loadAnshinInputs();
-        updateMemorySavedNote();
+    /* ページを開いたときの処理 */
+window.addEventListener(
+  "DOMContentLoaded",
+  () => {
+    const returnFromMemory =
+      sessionStorage.getItem("returnFromMemory") === "true";
 
-        const themeInput =
-          document.getElementById("theme");
+    if(returnFromMemory){
+      loadAnshinInputs();
+      sessionStorage.removeItem("returnFromMemory");
+    }else{
+      clearAnshinInputs();
+    }
 
-        const customBlocksInput =
-          document.getElementById("customBlocks");
+    updateMemorySavedNote();
 
-        themeInput.addEventListener(
-          "input",
-          saveAnshinInputs
-        );
+    const themeInput =
+      document.getElementById("theme");
 
-        customBlocksInput.addEventListener(
-          "input",
-          saveAnshinInputs
-        );
+    const customBlocksInput =
+      document.getElementById("customBlocks");
 
-        document
-          .querySelectorAll(".block-check")
-          .forEach((checkbox) => {
-            checkbox.addEventListener(
-              "change",
-              saveAnshinInputs
-            );
-          });
-      }
+    themeInput.addEventListener(
+      "input",
+      saveAnshinInputs
     );
+
+    customBlocksInput.addEventListener(
+      "input",
+      saveAnshinInputs
+    );
+
+    document
+      .querySelectorAll(".block-check")
+      .forEach((checkbox) => {
+        checkbox.addEventListener(
+          "change",
+          saveAnshinInputs
+        );
+      });
+  }
+);
+
+/* 前回の安心ナビ入力を消す */
+function clearAnshinInputs(){
+  document.getElementById("theme").value = "";
+  document.getElementById("customBlocks").value = "";
+  document.getElementById("blocks").value = "";
+
+  document
+    .querySelectorAll(".block-check")
+    .forEach((checkbox) => {
+      checkbox.checked = false;
+    });
+
+  localStorage.removeItem("anshinTheme");
+  localStorage.removeItem("anshinCustomBlocks");
+  localStorage.removeItem("anshinSelectedBlocks");
+}
+    
   </script>
 
 </body>
