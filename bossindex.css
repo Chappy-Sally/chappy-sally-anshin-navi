@@ -1,7 +1,7 @@
 body{
   font-family:"Hiragino Kaku Gothic ProN", sans-serif;
   text-align:center;
-  background:#fff0f5;
+  background:linear-gradient(180deg,#fff7fb 0%,#fdebf5 100%);
   padding:20px 14px 40px;
   color:#5b3a1e;
   margin:0;
@@ -11,7 +11,7 @@ body{
   width:92%;
   max-width:620px;
   margin:0 auto;
-  background:rgba(255,255,255,0.9);
+  background:linear-gradient(180deg,rgba(255,248,252,0.96),rgba(255,240,247,0.94));
   border-radius:28px;
   padding:24px 16px 28px;
   box-shadow:0 6px 18px rgba(0,0,0,0.08);
@@ -28,7 +28,8 @@ h1{
   width:90%;
   max-width:460px;
   border-radius:22px;
-  margin:16px 0 20px;
+  margin:16px auto 20px;
+  display:block;
   box-shadow:0 8px 18px rgba(0,0,0,0.12);
 }
 
@@ -40,35 +41,37 @@ h1{
   white-space:pre-line;
 }
 
-.input-box,.guide-box{
+.input-box,
+.guide-box{
   width:92%;
   max-width:500px;
   margin:18px auto 0;
-  padding:16px 14px;
-  background:#fff8fc;
+  padding:18px 14px;
+  background:rgba(255,248,252,0.94);
   border-radius:22px;
   box-shadow:0 4px 10px rgba(0,0,0,0.05);
 }
 
-.guide-box{
-  max-width:500px;
-  margin:10px auto 0;
-  padding:10px 14px;
-}
-
-.input-label,.guide-title{
-  font-size:18px;
+.guide-title{
+  font-size:19px;
   color:#6b4b2a;
-  margin-bottom:6px;
+  margin-bottom:10px;
   font-weight:bold;
 }
 
 .guide-text{
-  font-size:15px;
+  font-size:16px;
   color:#7b5b39;
-  line-height:1.5.5;
+  line-height:1.9;
   white-space:pre-line;
-  margin:8px 0;
+  margin:0 0 14px;
+}
+
+.input-label{
+  font-size:18px;
+  color:#6b4b2a;
+  margin-bottom:8px;
+  font-weight:bold;
 }
 
 input{
@@ -83,27 +86,44 @@ input{
 }
 
 button{
-  padding:14px 22px;
-  margin:12px 6px 2px;
+  width:90%;
+  max-width:320px;
+  margin:0 auto 6px;
+  display:block;
   border:none;
-  border-radius:28px;
+  border-radius:30px;
+  padding:16px 12px;
+  font-size:17px;
+  font-weight:bold;
   color:white;
-  font-size:18px;
   cursor:pointer;
-  box-shadow:0 4px 10px rgba(0,0,0,0.08);
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
 }
 
-.btn-pink{ background:linear-gradient(135deg,#f6b1c7,#eab0f5); }
-.btn-purple{ background:linear-gradient(135deg,#b9a3ff,#9ea8ff); }
-.btn-orange{ background:linear-gradient(135deg,#ffbe73,#f6a65d); }
-.btn-boss{ background:linear-gradient(135deg,#233b6e,#3f5f9a,#6d85c4); }
+.btn-pink{
+  background:linear-gradient(135deg,#f6b1c7,#eab0f5);
+}
+
+.btn-purple{
+  background:linear-gradient(135deg,#c8a8ff,#9aa9ff);
+}
+
+.btn-orange{
+  background:linear-gradient(135deg,#f7c06d,#f2a65a);
+}
+
+.btn-boss{
+  background:linear-gradient(135deg,#233b6e,#3f5f9a,#6d85c4);
+}
 
 .btn-back{
   background:linear-gradient(135deg,#dcd6ff,#c8ccff);
   color:#5b3a1e;
 }
 
-.hidden{ display:none !important; }
+.hidden{
+  display:none !important;
+}
 
 .menu-grid{
   display:grid;
@@ -116,7 +136,7 @@ button{
 .menu-vertical{
   display:flex;
   flex-direction:column;
-  gap:8px;
+  gap:10px;
   align-items:center;
   max-width:300px;
   margin:16px auto;
@@ -124,11 +144,11 @@ button{
 
 .menu-vertical button{
   width:88%;
-  min-height:42px;
+  min-height:44px;
   font-size:14px;
-  padding:8px 12px;
+  padding:10px 12px;
   border-radius:24px;
-  margin:5px auto;
+  margin:0 auto;
 }
 
 .info-card{
@@ -136,8 +156,8 @@ button{
   max-width:500px;
   margin:18px auto 0;
   padding:18px 14px;
-  background:#f8f6ff;
-  border:2px solid #d8d6ff;
+  background:rgba(255,248,252,0.94);
+  border:2px solid #f4c4dc;
   border-radius:22px;
   box-shadow:0 4px 10px rgba(0,0,0,0.05);
   text-align:left;
@@ -146,7 +166,7 @@ button{
 .info-title{
   font-size:18px;
   font-weight:bold;
-  color:#5f58c9;
+  color:#d45f9d;
   margin-bottom:10px;
   text-align:center;
 }
@@ -160,24 +180,53 @@ button{
 
 .talk-item{
   background:#fff;
-  border:1px solid #dcdfff;
+  border:1px solid #f4c4dc;
   border-radius:18px;
   padding:8px 12px;
   margin:0 0 8px;
-  line-height:1.35;
+  line-height:1.5;
 }
 
 .talk-list{
   margin:10px 0 0 0;
   padding-left:26px;
-  line-height:1.7;
+  line-height:1.8;
   color:#6b4b2a;
 }
 
-.back-wrap{ margin-top:18px; }
+.back-wrap{
+  margin-top:18px;
+}
 
 @media (max-width:480px){
-  button,input{ font-size:15px; }
-  .desc,.guide-text,.info-text{ font-size:15px; }
-  h1{ font-size:25px; }
+  button,
+  input{
+    font-size:15px;
+  }
+
+  .desc,
+  .guide-text,
+  .info-text{
+    font-size:15px;
+  }
+
+  .guide-title,
+  .info-title,
+  .input-label{
+    font-size:17px;
+  }
+
+  h1{
+    font-size:25px;
+  }
+
+  .main-card{
+    width:94%;
+    padding:22px 12px 26px;
+  }
+
+  .guide-box,
+  .info-card{
+    width:94%;
+  }
 }
