@@ -161,4 +161,25 @@ button:active{
   .important-box{
     width:94%;
   }
+
+  .guide-btn{
+  margin-top:10px;
+}
+
+.guide-image-wrap{
+  width:92%;
+  max-width:500px;
+  margin:14px auto 0;
+  padding:10px;
+  background:rgba(255,255,255,0.9);
+  border-radius:22px;
+  box-shadow:0 6px 16px rgba(0,0,0,0.08);
+}
+
+.guide-image{
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:16px;
+}
 }
