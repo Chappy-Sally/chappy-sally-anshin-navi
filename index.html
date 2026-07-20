@@ -1,151 +1,327 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
+*{
+  box-sizing:border-box;
+}
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+body{
+  font-family:"Hiragino Kaku Gothic ProN", sans-serif;
+  text-align:center;
+  background:linear-gradient(
+    180deg,
+    #fff7fb 0%,
+    #fdebf5 100%
+  );
+  padding:20px 14px 40px;
+  color:#5b3a1e;
+  margin:0;
+}
 
-  <title>チャッピー＆サリーの安心ナビ</title>
+.main-card{
+  width:92%;
+  max-width:620px;
+  margin:0 auto;
+  background:linear-gradient(
+    180deg,
+    rgba(255,248,252,0.96),
+    rgba(255,240,247,0.94)
+  );
+  border-radius:28px;
+  padding:24px 16px 28px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.08);
+}
 
-  <link rel="stylesheet" href="bossindex.css">
-</head>
+h1{
+  font-size:30px;
+  line-height:1.4;
+  margin:0 0 14px;
+  color:#6b4b2a;
+}
 
-<body>
+.hero-img{
+  display:block;
+  width:90%;
+  max-width:460px;
+  margin:16px auto 20px;
+  border-radius:22px;
+  box-shadow:0 8px 18px rgba(0,0,0,0.12);
+}
 
-  <div class="main-card">
+.desc{
+  font-size:18px;
+  line-height:1.7;
+  margin:0 0 20px;
+  color:#7b5b39;
+  white-space:pre-line;
+}
 
-    <h1>
-      🐶 チャッピー＆サリーの<br>
-      安心に戻る時間🌿
-    </h1>
+.input-box,
+.guide-box{
+  width:92%;
+  max-width:500px;
+  margin:16px auto 0;
+  padding:16px 14px;
+  background:rgba(255,248,252,0.94);
+  border-radius:22px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.05);
+}
 
-    <img
-      src="https://raw.githubusercontent.com/Chappy-Sally/chappy-sally-images/main/covers/CS_hyousi.jpg"
-      class="hero-img"
-      alt="チャッピー＆サリーの表紙"
-    >
+.guide-title{
+  font-size:19px;
+  color:#6b4b2a;
+  margin-bottom:8px;
+  font-weight:bold;
+  line-height:1.5;
+}
 
-    <p class="desc">
-      モヤモヤしたときも<br>
-      不安になったときも大丈夫😊<br>
-      一緒に安心へ戻ろう🌈
-    </p>
+.guide-text{
+  font-size:16px;
+  color:#7b5b39;
+  line-height:1.55;
+  white-space:pre-line;
+  margin:0 0 12px;
+}
 
+.input-label{
+  font-size:18px;
+  color:#6b4b2a;
+  margin-bottom:8px;
+  font-weight:bold;
+}
 
-    <!-- 1. 安心に戻る -->
-    <div class="guide-box">
+input{
+  width:92%;
+  max-width:380px;
+  padding:14px 16px;
+  border-radius:20px;
+  border:2px solid #d8c0ff;
+  font-size:17px;
+  box-sizing:border-box;
+  background:white;
+}
 
-      <div class="guide-title">
-        🌈 安心に戻る
-      </div>
+button{
+  width:90%;
+  max-width:340px;
+  margin:0 auto 4px;
+  display:block;
+  padding:15px 12px;
+  border:none;
+  border-radius:30px;
+  color:white;
+  font-size:17px;
+  font-weight:bold;
+  line-height:1.4;
+  cursor:pointer;
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease;
+}
 
-      <div class="guide-text">
-        「でも」「どうせ」「無理かも」<br>
-        願いを止めている言葉の奥にある<br>
-        本当の気持ちをやさしく整理します😊
-      </div>
+button:hover{
+  transform:translateY(-1px);
+}
 
-      <button
-        class="btn-purple"
-        onclick="location.href='boss-anshin.html'"
-      >
-        安心に戻る🌈
-      </button>
+button:active{
+  transform:scale(0.98);
+}
 
-    </div>
+.btn-pink{
+  background:linear-gradient(
+    135deg,
+    #f6b1c7,
+    #eab0f5
+  );
+}
 
+.btn-purple{
+  background:linear-gradient(
+    135deg,
+    #b69cff,
+    #8f9eff
+  );
+}
 
-    <!-- 2. チャッピーGPT -->
-    <div class="guide-box">
+.btn-orange{
+  background:linear-gradient(
+    135deg,
+    #ffbe73,
+    #f6a65d
+  );
+}
 
-      <div class="guide-title">
-        🐶 チャッピーと話す 🐾
-      </div>
+.btn-boss{
+  background:linear-gradient(
+    135deg,
+    #233b6e,
+    #3f5f9a,
+    #6d85c4
+  );
+}
 
-      <div class="guide-text">
-        チャッピーはあなたの気持ちに寄り添いながら<br>
-        一緒に安心へ戻る、やさしい相棒です🐾
-      </div>
+.btn-chappy{
+  background:linear-gradient(
+    135deg,
+    #7088d8,
+    #9a83df,
+    #d49ada
+  );
+}
 
-      <button
-        class="btn-chappy"
-        onclick="openChappyGPT()"
-      >
-        チャッピーGPTと話す
-      </button>
+.btn-breath{
+  background:linear-gradient(
+    135deg,
+    #8fd8c8,
+    #9fc8ff,
+    #b9afea
+  );
+}
 
-    </div>
+.btn-switch{
+  background:linear-gradient(
+    135deg,
+    #f9d783,
+    #f6b46e,
+    #f2a1c8
+  );
+}
 
+.btn-back{
+  background:linear-gradient(
+    135deg,
+    #dcd6ff,
+    #c8ccff
+  );
+  color:#5b3a1e;
+}
 
-    <!-- 3. 深呼吸 -->
-    <div class="guide-box">
+.hidden{
+  display:none !important;
+}
 
-      <div class="guide-title">
-        🌿 深呼吸してみよう 🌿
-      </div>
+.menu-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin:20px auto;
+  max-width:500px;
+}
 
-      <div class="guide-text">
-        考えすぎたときや<br>
-        まず安心に戻りたいときに😊
-      </div>
+.menu-vertical{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  align-items:center;
+  max-width:300px;
+  margin:16px auto;
+}
 
-      <button
-        class="btn-breath"
-        onclick="location.href='shinkokyu.html'"
-      >
-        深呼吸してみよう
-      </button>
+.menu-vertical button{
+  width:88%;
+  min-height:44px;
+  font-size:14px;
+  padding:10px 12px;
+  border-radius:24px;
+  margin:0 auto;
+}
 
-    </div>
+.info-card{
+  width:92%;
+  max-width:500px;
+  margin:18px auto 0;
+  padding:18px 14px;
+  background:rgba(255,248,252,0.94);
+  border:2px solid #f4c4dc;
+  border-radius:22px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.05);
+  text-align:left;
+}
 
+.info-title{
+  font-size:18px;
+  font-weight:bold;
+  color:#d45f9d;
+  margin-bottom:10px;
+  text-align:center;
+}
 
-    <!-- 4. しあわせスイッチ -->
-    <div class="guide-box">
+.info-text{
+  font-size:16px;
+  line-height:1.7;
+  color:#6b4b2a;
+  white-space:pre-line;
+}
 
-      <div class="guide-title">
-        🌈 しあわせスイッチ 🌈
-      </div>
+.talk-item{
+  background:#fff;
+  border:1px solid #f4c4dc;
+  border-radius:18px;
+  padding:8px 12px;
+  margin:0 0 8px;
+  line-height:1.5;
+}
 
-      <div class="guide-text">
-        今ある小さなしあわせに気づいて<br>
-        気持ちをふわっと切り替えたいときに🤭
-      </div>
+.talk-list{
+  margin:10px 0 0 0;
+  padding-left:26px;
+  line-height:1.7;
+  color:#6b4b2a;
+}
 
-      <button
-        class="btn-switch"
-        onclick="location.href='switch.html'"
-      >
-        しあわせスイッチを押す
-      </button>
+.back-wrap{
+  margin-top:18px;
+}
 
-    </div>
+.important-box{
+  width:92%;
+  max-width:500px;
+  margin:16px auto 0;
+  padding:14px;
+  background:#fff8fc;
+  border-radius:20px;
+  color:#8a6d58;
+  font-size:14px;
+  line-height:1.7;
+}
 
+@media (max-width:480px){
+  body{
+    padding:16px 10px 32px;
+  }
 
-    <!-- 大切なこと -->
-    <div class="important-box">
-      AIからの言葉は答えや正解ではありません😊<br>
-      今の自分を整理するヒントとして<br>
-      しっくりくる言葉だけ受け取ってね🌿
-    </div>
+  .main-card{
+    width:96%;
+    padding:20px 12px 24px;
+  }
 
-  </div>
+  h1{
+    font-size:25px;
+  }
 
+  .desc{
+    font-size:15px;
+    line-height:1.65;
+  }
 
-  <script>
-    function openChappyGPT(){
-      const chappyGptUrl =
-        "https://chatgpt.com/g/g-6a521739bdc08191be5387b1993ba520-tiyatuhigpt";
+  .guide-title,
+  .info-title,
+  .input-label{
+    font-size:17px;
+  }
 
-      window.open(
-        chappyGptUrl,
-        "_blank",
-        "noopener,noreferrer"
-      );
-    }
-  </script>
+  .guide-text,
+  .info-text{
+    font-size:15px;
+    line-height:1.55;
+  }
 
-</body>
-</html>
+  button,
+  input{
+    font-size:15px;
+  }
+
+  .guide-box,
+  .info-card,
+  .important-box{
+    width:94%;
+  }
+}
