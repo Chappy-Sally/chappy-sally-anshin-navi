@@ -47,10 +47,10 @@ h1{
 
 .desc{
   font-size:18px;
-  line-height:1.7;
+  line-height:1.5;
   margin:0 0 20px;
   color:#7b5b39;
-  white-space:pre-line;
+  white-space:normal;
 }
 
 .input-box,
@@ -75,8 +75,8 @@ h1{
 .guide-text{
   font-size:16px;
   color:#7b5b39;
-  line-height:1.35;
-  white-space:pre-line;
+  line-height:1.45;
+  white-space:normal;
   margin:0 0 10px;
 }
 
@@ -309,9 +309,9 @@ button:active{
   }
 
   .guide-text,
-.info-text{
-  font-size:15px;
-  line-height:1.35;
+  .info-text{
+    font-size:15px;
+    line-height:1.45;
 }
 
   button,
