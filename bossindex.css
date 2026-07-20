@@ -75,9 +75,9 @@ h1{
 .guide-text{
   font-size:16px;
   color:#7b5b39;
-  line-height:1.55;
+  line-height:1.35;
   white-space:pre-line;
-  margin:0 0 12px;
+  margin:0 0 10px;
 }
 
 .input-label{
@@ -309,10 +309,10 @@ button:active{
   }
 
   .guide-text,
-  .info-text{
-    font-size:15px;
-    line-height:1.55;
-  }
+.info-text{
+  font-size:15px;
+  line-height:1.35;
+}
 
   button,
   input{
