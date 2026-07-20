@@ -2,7 +2,11 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>チャッピー＆サリーの安心ナビ</title>
 
@@ -25,20 +29,22 @@
     >
 
     <p class="desc">
-         モヤモヤしたときも 
-      不安になったときも大丈夫😊
-        一緒に安心へ戻ろう🌈
+      モヤモヤしたときも<br>
+      不安になったときも大丈夫😊<br>
+      一緒に安心へ戻ろう🌈
     </p>
 
+
+    <!-- 1. 安心に戻る -->
     <div class="guide-box">
-      <div class="guide-title">🌈 安心に戻る</div>
+
+      <div class="guide-title">
+        🌈 安心に戻る
+      </div>
 
       <div class="guide-text">
-        「でも」
-        「どうせ」
-        「無理かも」
-
-        願いを止めている言葉の奥にある
+        「でも」「どうせ」「無理かも」<br>
+        願いを止めている言葉の奥にある<br>
         本当の気持ちをやさしく整理します😊
       </div>
 
@@ -48,77 +54,81 @@
       >
         安心に戻る🌈
       </button>
+
     </div>
 
 
+    <!-- 2. チャッピーGPT -->
     <div class="guide-box">
-      <div class="guide-title">🐶 チャッピーと話す</div>
+
+      <div class="guide-title">
+        🐶 チャッピーと話す 🐾
+      </div>
 
       <div class="guide-text">
-        チャッピーは
-        あなたの気持ちに寄り添いながら
-
-        一緒に安心へ戻る
-        やさしい相棒です🐾
-
-        初めての方には
-        チャッピーから自己紹介するよ😊
+        チャッピーはあなたの気持ちに寄り添いながら<br>
+        一緒に安心へ戻る、やさしい相棒です🐾
       </div>
 
       <button
-        class="btn-orange"
+        class="btn-chappy"
         onclick="openChappyGPT()"
       >
-        チャッピーGPTと話す🐶
+        チャッピーGPTと話す
       </button>
+
     </div>
 
+
+    <!-- 3. 深呼吸 -->
     <div class="guide-box">
-  <div class="guide-title">🌿 深呼吸してみよう</div>
 
-  <div class="guide-text">
-    考えすぎたときや
-    まず安心に戻りたいときに😊
-  </div>
-
-  <button
-    class="btn-orange"
-    onclick="location.href='shinkokyu.html'"
-  >
-    深呼吸してみよう🌿
-  </button>
-</div>
-
-<div class="guide-box">
-  <div class="guide-title">🌈 しあわせスイッチ</div>
-
-  <div class="guide-text">
-    今ある小さなしあわせに気づいて
-    気持ちをふわっと切り替えたいときに🤭
-  </div>
-
-  <button
-    class="btn-purple"
-    onclick="location.href='switch.html'"
-  >
-    しあわせスイッチを押す🌈
-  </button>
-</div>
-
-
-    <div class="guide-box">
-      <div class="guide-title">🐾 大切なこと</div>
+      <div class="guide-title">
+        🌿 深呼吸してみよう 🌿
+      </div>
 
       <div class="guide-text">
-        AIからの言葉は
-        答えや正解ではありません。
-
-        今の自分をやさしく整理するための
-        ヒントとして使ってね😊
-
-        しっくりくる言葉だけ
-        やさしく受け取れば大丈夫です🌿
+        考えすぎたときや<br>
+        まず安心に戻りたいときに😊
       </div>
+
+      <button
+        class="btn-breath"
+        onclick="location.href='shinkokyu.html'"
+      >
+        深呼吸してみよう
+      </button>
+
+    </div>
+
+
+    <!-- 4. しあわせスイッチ -->
+    <div class="guide-box">
+
+      <div class="guide-title">
+        🌈 しあわせスイッチ 🌈
+      </div>
+
+      <div class="guide-text">
+        今ある小さなしあわせに気づいて<br>
+        気持ちをふわっと切り替えたいときに🤭
+      </div>
+
+      <button
+        class="btn-switch"
+        onclick="location.href='switch.html'"
+      >
+        しあわせスイッチを押す
+      </button>
+
+    </div>
+
+
+    <!-- 大切なこと -->
+    <div class="important-box">
+      AIからの言葉は答えや正解ではありません😊<br>
+      今の自分を整理するヒントとして<br>
+      しっくりくる言葉だけ受け取ってね🌿
     </div>
 
   </div>
@@ -126,10 +136,14 @@
 
   <script>
     function openChappyGPT(){
+      const chappyGptUrl =
+        "https://chatgpt.com/g/g-6a521739bdc08191be5387b1993ba520-tiyatuhigpt";
 
-  const chappyGptUrl = "https://chatgpt.com/g/g-6a521739bdc08191be5387b1993ba520-tiyatuhigpt";
-
-  window.open(chappyGptUrl, "_blank");
+      window.open(
+        chappyGptUrl,
+        "_blank",
+        "noopener,noreferrer"
+      );
     }
   </script>
 
