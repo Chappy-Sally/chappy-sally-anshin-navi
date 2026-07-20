@@ -166,19 +166,22 @@
       );
     }
     
-    function toggleChappyGuide(){
+  function toggleChappyGuide(){
   const guide =
     document.getElementById("chappyGuide");
 
-  guide.classList.toggle("hidden");
+  if(guide.style.display === "none"){
+    guide.style.display = "block";
 
-  if(!guide.classList.contains("hidden")){
     guide.scrollIntoView({
       behavior:"smooth",
       block:"start"
     });
+  }else{
+    guide.style.display = "none";
   }
-    }
+  }
+    
   </script>
 
 </body>
