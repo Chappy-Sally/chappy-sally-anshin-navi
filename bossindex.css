@@ -1,7 +1,15 @@
+*{
+  box-sizing:border-box;
+}
+
 body{
   font-family:"Hiragino Kaku Gothic ProN", sans-serif;
   text-align:center;
-  background:linear-gradient(180deg,#fff7fb 0%,#fdebf5 100%);
+  background:linear-gradient(
+    180deg,
+    #fff7fb 0%,
+    #fdebf5 100%
+  );
   padding:20px 14px 40px;
   color:#5b3a1e;
   margin:0;
@@ -11,7 +19,11 @@ body{
   width:92%;
   max-width:620px;
   margin:0 auto;
-  background:linear-gradient(180deg,rgba(255,248,252,0.96),rgba(255,240,247,0.94));
+  background:linear-gradient(
+    180deg,
+    rgba(255,248,252,0.96),
+    rgba(255,240,247,0.94)
+  );
   border-radius:28px;
   padding:24px 16px 28px;
   box-shadow:0 6px 18px rgba(0,0,0,0.08);
@@ -25,17 +37,17 @@ h1{
 }
 
 .hero-img{
+  display:block;
   width:90%;
   max-width:460px;
-  border-radius:22px;
   margin:16px auto 20px;
-  display:block;
+  border-radius:22px;
   box-shadow:0 8px 18px rgba(0,0,0,0.12);
 }
 
 .desc{
   font-size:18px;
-  line-height:1.9;
+  line-height:1.7;
   margin:0 0 20px;
   color:#7b5b39;
   white-space:pre-line;
@@ -45,8 +57,8 @@ h1{
 .guide-box{
   width:92%;
   max-width:500px;
-  margin:18px auto 0;
-  padding:18px 14px;
+  margin:16px auto 0;
+  padding:16px 14px;
   background:rgba(255,248,252,0.94);
   border-radius:22px;
   box-shadow:0 4px 10px rgba(0,0,0,0.05);
@@ -55,16 +67,17 @@ h1{
 .guide-title{
   font-size:19px;
   color:#6b4b2a;
-  margin-bottom:10px;
+  margin-bottom:8px;
   font-weight:bold;
+  line-height:1.5;
 }
 
 .guide-text{
   font-size:16px;
   color:#7b5b39;
-  line-height:1.9;
+  line-height:1.55;
   white-space:pre-line;
-  margin:0 0 14px;
+  margin:0 0 12px;
 }
 
 .input-label{
@@ -87,37 +100,97 @@ input{
 
 button{
   width:90%;
-  max-width:320px;
-  margin:0 auto 6px;
+  max-width:340px;
+  margin:0 auto 4px;
   display:block;
+  padding:15px 12px;
   border:none;
   border-radius:30px;
-  padding:16px 12px;
+  color:white;
   font-size:17px;
   font-weight:bold;
-  color:white;
+  line-height:1.4;
   cursor:pointer;
   box-shadow:0 4px 12px rgba(0,0,0,0.08);
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease;
+}
+
+button:hover{
+  transform:translateY(-1px);
+}
+
+button:active{
+  transform:scale(0.98);
 }
 
 .btn-pink{
-  background:linear-gradient(135deg,#f6b1c7,#eab0f5);
+  background:linear-gradient(
+    135deg,
+    #f6b1c7,
+    #eab0f5
+  );
 }
 
 .btn-purple{
-  background:linear-gradient(135deg,#c8a8ff,#9aa9ff);
+  background:linear-gradient(
+    135deg,
+    #b69cff,
+    #8f9eff
+  );
 }
 
 .btn-orange{
-  background:linear-gradient(135deg,#f7c06d,#f2a65a);
+  background:linear-gradient(
+    135deg,
+    #ffbe73,
+    #f6a65d
+  );
 }
 
 .btn-boss{
-  background:linear-gradient(135deg,#233b6e,#3f5f9a,#6d85c4);
+  background:linear-gradient(
+    135deg,
+    #233b6e,
+    #3f5f9a,
+    #6d85c4
+  );
+}
+
+.btn-chappy{
+  background:linear-gradient(
+    135deg,
+    #7088d8,
+    #9a83df,
+    #d49ada
+  );
+}
+
+.btn-breath{
+  background:linear-gradient(
+    135deg,
+    #8fd8c8,
+    #9fc8ff,
+    #b9afea
+  );
+}
+
+.btn-switch{
+  background:linear-gradient(
+    135deg,
+    #f9d783,
+    #f6b46e,
+    #f2a1c8
+  );
 }
 
 .btn-back{
-  background:linear-gradient(135deg,#dcd6ff,#c8ccff);
+  background:linear-gradient(
+    135deg,
+    #dcd6ff,
+    #c8ccff
+  );
   color:#5b3a1e;
 }
 
@@ -173,7 +246,7 @@ button{
 
 .info-text{
   font-size:16px;
-  line-height:1.9;
+  line-height:1.7;
   color:#6b4b2a;
   white-space:pre-line;
 }
@@ -190,7 +263,7 @@ button{
 .talk-list{
   margin:10px 0 0 0;
   padding-left:26px;
-  line-height:1.8;
+  line-height:1.7;
   color:#6b4b2a;
 }
 
@@ -198,16 +271,35 @@ button{
   margin-top:18px;
 }
 
+.important-box{
+  width:92%;
+  max-width:500px;
+  margin:16px auto 0;
+  padding:14px;
+  background:#fff8fc;
+  border-radius:20px;
+  color:#8a6d58;
+  font-size:14px;
+  line-height:1.7;
+}
+
 @media (max-width:480px){
-  button,
-  input{
-    font-size:15px;
+  body{
+    padding:16px 10px 32px;
   }
 
-  .desc,
-  .guide-text,
-  .info-text{
+  .main-card{
+    width:96%;
+    padding:20px 12px 24px;
+  }
+
+  h1{
+    font-size:25px;
+  }
+
+  .desc{
     font-size:15px;
+    line-height:1.65;
   }
 
   .guide-title,
@@ -216,17 +308,20 @@ button{
     font-size:17px;
   }
 
-  h1{
-    font-size:25px;
+  .guide-text,
+  .info-text{
+    font-size:15px;
+    line-height:1.55;
   }
 
-  .main-card{
-    width:94%;
-    padding:22px 12px 26px;
+  button,
+  input{
+    font-size:15px;
   }
 
   .guide-box,
-  .info-card{
+  .info-card,
+  .important-box{
     width:94%;
   }
 }
