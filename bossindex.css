@@ -5,7 +5,11 @@
 body{
   font-family:"Hiragino Kaku Gothic ProN", sans-serif;
   text-align:center;
-  background:linear-gradient(180deg,#fff7fb 0%,#fdebf5 100%);
+  background:linear-gradient(
+    180deg,
+    #fff7fb 0%,
+    #fdebf5 100%
+  );
   padding:20px 14px 40px;
   color:#5b3a1e;
   margin:0;
@@ -15,7 +19,11 @@ body{
   width:92%;
   max-width:620px;
   margin:0 auto;
-  background:linear-gradient(180deg,rgba(255,248,252,0.96),rgba(255,240,247,0.94));
+  background:linear-gradient(
+    180deg,
+    rgba(255,248,252,0.96),
+    rgba(255,240,247,0.94)
+  );
   border-radius:28px;
   padding:24px 16px 28px;
   box-shadow:0 6px 18px rgba(0,0,0,0.08);
@@ -84,7 +92,9 @@ button{
   color:white;
   cursor:pointer;
   box-shadow:0 4px 12px rgba(0,0,0,0.08);
-  transition:transform 0.15s ease, opacity 0.15s ease;
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease;
 }
 
 button:hover{
@@ -96,19 +106,64 @@ button:active{
 }
 
 .btn-purple{
-  background:linear-gradient(135deg,#f6b1c7,#c8a8ff,#9aa9ff);
+  background:linear-gradient(
+    135deg,
+    #f6b1c7,
+    #c8a8ff,
+    #9aa9ff
+  );
 }
 
 .btn-chappy{
-  background:linear-gradient(135deg,#7088d8,#9a83df,#d49ada);
+  background:linear-gradient(
+    135deg,
+    #7088d8,
+    #9a83df,
+    #d49ada
+  );
 }
 
 .btn-breath{
-  background:linear-gradient(135deg,#8fd8c8,#9fc8ff,#b9afea);
+  background:linear-gradient(
+    135deg,
+    #8fd8c8,
+    #9fc8ff,
+    #b9afea
+  );
 }
 
 .btn-switch{
-  background:linear-gradient(135deg,#f9d783,#f6b46e,#f2a1c8);
+  background:linear-gradient(
+    135deg,
+    #f9d783,
+    #f6b46e,
+    #f2a1c8
+  );
+}
+
+.guide-btn{
+  margin-top:10px;
+}
+
+.guide-image-wrap{
+  width:92%;
+  max-width:500px;
+  margin:14px auto 0;
+  padding:10px;
+  background:rgba(255,255,255,0.9);
+  border-radius:22px;
+  box-shadow:0 6px 16px rgba(0,0,0,0.08);
+}
+
+.guide-image{
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:16px;
+}
+
+.hidden{
+  display:none !important;
 }
 
 .important-box{
@@ -153,33 +208,13 @@ button:active{
   }
 
   button{
-    font-size:15px;
     width:94%;
+    font-size:15px;
   }
 
   .guide-box,
+  .guide-image-wrap,
   .important-box{
     width:94%;
   }
-
-  .guide-btn{
-  margin-top:10px;
-}
-
-.guide-image-wrap{
-  width:92%;
-  max-width:500px;
-  margin:14px auto 0;
-  padding:10px;
-  background:rgba(255,255,255,0.9);
-  border-radius:22px;
-  box-shadow:0 6px 16px rgba(0,0,0,0.08);
-}
-
-.guide-image{
-  display:block;
-  width:100%;
-  height:auto;
-  border-radius:16px;
-}
 }
