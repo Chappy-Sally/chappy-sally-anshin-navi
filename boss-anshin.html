@@ -185,7 +185,7 @@
       </div>
 
 
-      <!-- チェック項目と自由入力をまとめて入れる場所 -->
+      <!-- チェック項目と自由入力をまとめる場所 -->
       <textarea
         id="blocks"
         class="hidden"
@@ -261,7 +261,7 @@
 
         <button
           class="back-btn"
-          onclick="location.href='https://chappy-sally.github.io/chappy-sally-anshin-navi/'"
+          onclick="goToMenu()"
         >
           🏠 メニューにもどる
         </button>
@@ -318,7 +318,7 @@
 
         <button
           class="back-btn"
-          onclick="location.href='https://chappy-sally.github.io/chappy-sally-anshin-navi/'"
+          onclick="goToMenu()"
         >
           🏠 メニューにもどる
         </button>
@@ -330,10 +330,11 @@
   </div>
 
 
-  <script src="boss-anshin.js"></script>
+  <script src="boss-anshin.js?v=4"></script>
 
 
   <script>
+
     /* 選んだ気持ちと自由入力をまとめる */
     function collectBlocks(){
       const selected = [];
@@ -354,10 +355,12 @@
         selected.push(customText);
       }
 
-      const blocksText = selected.join("\n");
+      const blocksText =
+        selected.join("\n");
 
-      document.getElementById("blocks").value =
-        blocksText;
+      document
+        .getElementById("blocks")
+        .value = blocksText;
 
       return blocksText;
     }
@@ -415,24 +418,29 @@
       try{
         savedSelectedBlocks =
           JSON.parse(
-            localStorage.getItem("anshinSelectedBlocks") ||
-            "[]"
+            localStorage.getItem(
+              "anshinSelectedBlocks"
+            ) || "[]"
           );
       }catch(error){
         savedSelectedBlocks = [];
       }
 
-      document.getElementById("theme").value =
-        savedTheme;
+      document
+        .getElementById("theme")
+        .value = savedTheme;
 
-      document.getElementById("customBlocks").value =
-        savedCustomBlocks;
+      document
+        .getElementById("customBlocks")
+        .value = savedCustomBlocks;
 
       document
         .querySelectorAll(".block-check")
         .forEach((checkbox) => {
           checkbox.checked =
-            savedSelectedBlocks.includes(checkbox.value);
+            savedSelectedBlocks.includes(
+              checkbox.value
+            );
         });
 
       collectBlocks();
@@ -441,14 +449,15 @@
 
     /* 思い出ナビへ進む */
     function goToMemory(){
-  saveAnshinInputs();
+      saveAnshinInputs();
 
-  sessionStorage.setItem(
-    "returnFromMemory",
-    "true"
-  );
+      sessionStorage.setItem(
+        "returnFromMemory",
+        "true"
+      );
 
-  location.href = "omoide.html";
+      location.href =
+        "omoide.html";
     }
 
 
@@ -477,7 +486,9 @@
       }
 
       const note =
-        document.getElementById("memorySavedNote");
+        document.getElementById(
+          "memorySavedNote"
+        );
 
       if(hasMemoryChecks || memoryText){
         note.classList.remove("hidden");
@@ -495,10 +506,14 @@
           .value
           .trim();
 
-      const blocks = collectBlocks();
+      const blocks =
+        collectBlocks();
 
       if(!theme){
-        alert("どうなったら嬉しいか入れてね😊");
+        alert(
+          "どうなったら嬉しいか入れてね😊"
+        );
+
         return false;
       }
 
@@ -529,12 +544,13 @@
         .remove("hidden");
 
       window.scrollTo({
-        top:0,
-        behavior:"smooth"
+        top: 0,
+        behavior: "smooth"
       });
     }
 
 
+    /* 1枚引き */
     function startDrawOne(){
       if(!validateInputs()){
         return;
@@ -545,6 +561,7 @@
     }
 
 
+    /* 3枚引き */
     function startDrawThree(){
       if(!validateInputs()){
         return;
@@ -555,6 +572,7 @@
     }
 
 
+    /* 入力画面へ戻る */
     function backToInput(){
       document
         .getElementById("cardScreen")
@@ -567,74 +585,117 @@
         .remove("hidden");
 
       window.scrollTo({
-        top:0,
-        behavior:"smooth"
+        top: 0,
+        behavior: "smooth"
       });
     }
 
 
-    /* ページを開いたときの処理 */
-window.addEventListener(
-  "DOMContentLoaded",
-  () => {
-    const returnFromMemory =
-      sessionStorage.getItem("returnFromMemory") === "true";
+    /* 前回の安心ナビ入力を消す */
+    function clearAnshinInputs(){
+      document
+        .getElementById("theme")
+        .value = "";
 
-    if(returnFromMemory){
-      loadAnshinInputs();
-      sessionStorage.removeItem("returnFromMemory");
-    }else{
-      clearAnshinInputs();
+      document
+        .getElementById("customBlocks")
+        .value = "";
+
+      document
+        .getElementById("blocks")
+        .value = "";
+
+      document
+        .querySelectorAll(".block-check")
+        .forEach((checkbox) => {
+          checkbox.checked = false;
+        });
+
+      localStorage.removeItem(
+        "anshinTheme"
+      );
+
+      localStorage.removeItem(
+        "anshinCustomBlocks"
+      );
+
+      localStorage.removeItem(
+        "anshinSelectedBlocks"
+      );
+
+      localStorage.removeItem(
+        "memoryChecks"
+      );
+
+      localStorage.removeItem(
+        "memoryText"
+      );
     }
 
-    updateMemorySavedNote();
 
-    const themeInput =
-      document.getElementById("theme");
+    /* 入力内容を消して単独版メニューへ戻る */
+    function goToMenu(){
+      clearAnshinInputs();
 
-    const customBlocksInput =
-      document.getElementById("customBlocks");
+      sessionStorage.removeItem(
+        "returnFromMemory"
+      );
 
-    themeInput.addEventListener(
-      "input",
-      saveAnshinInputs
-    );
+      location.href =
+        "https://chappy-sally.github.io/chappy-sally-anshin-navi/";
+    }
 
-    customBlocksInput.addEventListener(
-      "input",
-      saveAnshinInputs
-    );
 
-    document
-      .querySelectorAll(".block-check")
-      .forEach((checkbox) => {
-        checkbox.addEventListener(
-          "change",
+    /* ページを開いたとき */
+    window.addEventListener(
+      "DOMContentLoaded",
+      () => {
+        const returnFromMemory =
+          sessionStorage.getItem(
+            "returnFromMemory"
+          ) === "true";
+
+        if(returnFromMemory){
+          loadAnshinInputs();
+
+          sessionStorage.removeItem(
+            "returnFromMemory"
+          );
+        }else{
+          clearAnshinInputs();
+        }
+
+        updateMemorySavedNote();
+
+        const themeInput =
+          document.getElementById("theme");
+
+        const customBlocksInput =
+          document.getElementById(
+            "customBlocks"
+          );
+
+        themeInput.addEventListener(
+          "input",
           saveAnshinInputs
         );
-      });
-  }
-);
 
-/* 前回の安心ナビ入力を消す */
-function clearAnshinInputs(){
-  document.getElementById("theme").value = "";
-  document.getElementById("customBlocks").value = "";
-  document.getElementById("blocks").value = "";
+        customBlocksInput.addEventListener(
+          "input",
+          saveAnshinInputs
+        );
 
-  document
-    .querySelectorAll(".block-check")
-    .forEach((checkbox) => {
-      checkbox.checked = false;
-    });
+        document
+          .querySelectorAll(".block-check")
+          .forEach((checkbox) => {
+            checkbox.addEventListener(
+              "change",
+              saveAnshinInputs
+            );
+          });
+      }
+    );
 
-  localStorage.removeItem("anshinTheme");
-  localStorage.removeItem("anshinCustomBlocks");
-  localStorage.removeItem("anshinSelectedBlocks");
-  localStorage.removeItem("memoryChecks");
-  localStorage.removeItem("memoryText");
-}
-    
   </script>
 
 </body>
