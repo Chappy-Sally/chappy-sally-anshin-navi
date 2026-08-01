@@ -8,7 +8,7 @@
     content="width=device-width, initial-scale=1, viewport-fit=cover"
   >
 
-  <title>安心してない私へ｜安心にもどるナビ</title>
+  <title>安心できない私へ｜安心にもどるナビ</title>
 
   <style>
     * {
@@ -18,12 +18,11 @@
     :root {
       --brown: #6b4b32;
       --brown-light: #8a6a50;
-      --pink-bg: #fff5f8;
-      --card-bg: rgba(255, 255, 255, 0.94);
+      --card-bg: rgba(255, 255, 255, 0.96);
       --cream: #fff9e8;
       --cream-border: #f3df9f;
       --pink: #e994a9;
-      --pink-dark: #d97f99;
+      --pink-dark: #9a94f2;
       --green: #799667;
       --shadow: 0 10px 28px rgba(126, 84, 64, 0.12);
     }
@@ -44,9 +43,9 @@
       background:
         radial-gradient(
           circle at top,
-          rgba(255, 255, 255, 0.95),
-          rgba(255, 240, 246, 0.96) 52%,
-          rgba(255, 232, 241, 0.98)
+          rgba(255, 255, 255, 0.96),
+          rgba(255, 240, 246, 0.97) 52%,
+          rgba(239, 248, 255, 0.98)
         );
       line-height: 1.8;
     }
@@ -60,28 +59,17 @@
       width: min(100%, 760px);
       margin: 0 auto;
       padding:
-        max(20px, env(safe-area-inset-top))
+        max(22px, env(safe-area-inset-top))
         16px
-        max(44px, env(safe-area-inset-bottom));
+        max(48px, env(safe-area-inset-bottom));
     }
 
-    .top-buttons {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 18px;
-    }
-
-    .mini-button {
-      appearance: none;
-      border: 1px solid rgba(121, 86, 57, 0.16);
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.85);
-      color: var(--brown);
-      padding: 9px 15px;
-      font-size: 14px;
-      cursor: pointer;
-      box-shadow: 0 5px 16px rgba(109, 73, 51, 0.08);
+    .main-card {
+      width: 100%;
+      padding: 22px 18px 34px;
+      background: var(--card-bg);
+      border-radius: 32px;
+      box-shadow: 0 12px 34px rgba(126, 84, 64, 0.12);
     }
 
     .hero {
@@ -103,10 +91,10 @@
     }
 
     h1 {
-      margin: 26px 0 8px;
-      font-size: clamp(26px, 7vw, 38px);
+      margin: 26px 0 10px;
+      font-size: clamp(27px, 7vw, 39px);
       line-height: 1.4;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.03em;
       color: #6d482c;
     }
 
@@ -115,11 +103,12 @@
       max-width: 650px;
       font-size: 16px;
       color: var(--brown-light);
+      line-height: 2;
     }
 
     .message-box {
       margin: 22px 0;
-      padding: 20px 18px;
+      padding: 21px 18px;
       text-align: center;
       background: var(--cream);
       border: 1px solid var(--cream-border);
@@ -129,7 +118,7 @@
 
     .message-box strong {
       display: block;
-      margin-bottom: 6px;
+      margin-bottom: 7px;
       font-size: 18px;
       color: #76512f;
     }
@@ -137,7 +126,7 @@
     .question-card {
       margin: 18px 0;
       padding: 22px 18px;
-      background: var(--card-bg);
+      background: #fff;
       border: 1px solid rgba(223, 175, 190, 0.22);
       border-radius: 24px;
       box-shadow: var(--shadow);
@@ -147,9 +136,9 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-width: 40px;
-      height: 40px;
-      margin-bottom: 10px;
+      min-width: 42px;
+      height: 42px;
+      margin-bottom: 11px;
       border-radius: 50%;
       background: #fce6ed;
       color: #b96881;
@@ -161,13 +150,14 @@
       margin-bottom: 11px;
       font-weight: 700;
       font-size: 18px;
-      line-height: 1.65;
+      line-height: 1.7;
     }
 
     .hint {
       margin: 0 0 13px;
       color: #93745d;
       font-size: 14px;
+      line-height: 1.75;
     }
 
     textarea {
@@ -200,13 +190,25 @@
       margin-top: 26px;
     }
 
-    .main-button {
+    .main-button,
+    .sub-button,
+    .retry-button,
+    .home-button {
       display: block;
       width: 100%;
       appearance: none;
-      border: none;
       border-radius: 999px;
-      padding: 17px 20px;
+      padding: 17px 18px;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+    }
+
+    .main-button {
+      border: none;
       color: #fff;
       background:
         linear-gradient(
@@ -214,32 +216,21 @@
           var(--pink),
           var(--pink-dark)
         );
-      font-size: 18px;
-      font-weight: 700;
-      cursor: pointer;
-      box-shadow: 0 10px 22px rgba(213, 116, 145, 0.28);
-      transition:
-        transform 0.15s ease,
-        box-shadow 0.15s ease;
-    }
-
-    .main-button:active {
-      transform: scale(0.98);
-      box-shadow: 0 5px 13px rgba(213, 116, 145, 0.24);
+      box-shadow: 0 10px 22px rgba(173, 126, 210, 0.28);
     }
 
     .sub-button {
-      display: block;
-      width: 100%;
       margin-top: 13px;
-      appearance: none;
       border: 2px solid #dca2b3;
-      border-radius: 999px;
-      padding: 14px 18px;
       color: #a55d73;
       background: #fff;
-      font-weight: 700;
-      cursor: pointer;
+    }
+
+    .main-button:active,
+    .sub-button:active,
+    .retry-button:active,
+    .home-button:active {
+      transform: scale(0.98);
     }
 
     .status {
@@ -264,7 +255,7 @@
       margin-top: 20px;
       padding: 24px 19px;
       text-align: center;
-      background: rgba(255, 255, 255, 0.95);
+      background: #fff;
       border-radius: 24px;
       box-shadow: var(--shadow);
     }
@@ -286,10 +277,36 @@
       border-radius: 18px;
       font-weight: 700;
       color: #76512f;
+      line-height: 1.9;
+    }
+
+    .bottom-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .retry-button,
+    .home-button {
+      min-height: 88px;
+      border: none;
+      color: #fff;
+      line-height: 1.5;
+    }
+
+    .retry-button {
+      background: linear-gradient(135deg, #87d9d2, #aaa0ef);
+      box-shadow: 0 10px 22px rgba(127, 150, 210, 0.25);
+    }
+
+    .home-button {
+      background: linear-gradient(135deg, #ffd15f, #ff9568);
+      box-shadow: 0 10px 22px rgba(239, 153, 92, 0.25);
     }
 
     .small-note {
-      margin-top: 18px;
+      margin: 20px 0 0;
       font-size: 13px;
       color: #9a8373;
       text-align: center;
@@ -313,235 +330,222 @@
         padding-right: 28px;
       }
 
+      .main-card {
+        padding: 30px 28px 40px;
+      }
+
       .question-card {
         padding: 26px;
       }
     }
 
-    /* もう一度やってみる */
-.anshin-me-retry-button{
-  display:block;
-  width:100%;
-  margin-top:14px;
-  border:none;
-  border-radius:999px;
-  padding:17px 20px;
-  background:linear-gradient(135deg,#87d9d2,#b8a1ef);
-  color:#fff;
-  font-size:18px;
-  font-weight:700;
-  cursor:pointer;
-  box-shadow:0 10px 22px rgba(127,150,210,.25);
-}
+    @media (max-width: 420px) {
+      .main-card {
+        padding: 18px 14px 30px;
+      }
 
-/* ホームにもどる */
-.anshin-me-home-button{
-  display:block;
-  width:100%;
-  margin-top:14px;
-  border:none;
-  border-radius:999px;
-  padding:17px 20px;
-  background:linear-gradient(135deg,#ffd15f,#ff9568);
-  color:#fff;
-  font-size:18px;
-  font-weight:700;
-  cursor:pointer;
-  box-shadow:0 10px 22px rgba(239,153,92,.25);
-}
+      .bottom-buttons {
+        gap: 10px;
+      }
 
-.anshin-me-retry-button:active,
-.anshin-me-home-button:active{
-  transform:scale(.98);
-}
-    
+      .retry-button,
+      .home-button {
+        padding: 14px 10px;
+        font-size: 17px;
+      }
+    }
   </style>
 </head>
 
 <body>
   <main class="page">
+    <div class="main-card">
 
-    <div class="top-buttons">
-  <button
-  type="button"
-  class="anshin-me-retry-button"
-  id="clearButton"
->
-  もう一度やってみる
-</button>
+      <section class="hero">
+        <img
+          class="hero-image"
+          src="https://raw.githubusercontent.com/Chappy-Sally/chappy-sally-images/main/anshin/cs_Syonbori.png"
+          alt="しょんぼりしているチャッピーとサリー"
+        >
 
-<button
-  type="button"
-  class="anshin-me-home-button"
-  onclick="location.href='index.html'"
->
-  ホームにもどる
-</button>
-    </div>
+        <h1>🌱 安心できない私へ</h1>
 
-    <section class="hero">
-      <img
-        class="hero-image"
-        src="https://raw.githubusercontent.com/Chappy-Sally/chappy-sally-images/main/anshin/cs_Syonbori.png"
-        alt="しょんぼりしているチャッピーとサリー"
-      >
-
-      <h1>🌱 安心してない私へ</h1>
-
-      <p class="lead">
-        今見つかった思い込みやクセの奥には、<br>
-        安心できずに泣いている私がいるのかもしれません😊
-      </p>
-    </section>
-
-    <div class="message-box">
-      <strong>答えを急がなくて大丈夫です🌿</strong>
-      うまく書こうとしなくて大丈夫。<br>
-      今のあなたが感じられる範囲で、<br>
-      やさしく心に聞いてみてね😊
-    </div>
-
-    <section class="question-card">
-      <div class="question-number">1</div>
-
-      <label for="belief">
-        今見つかった思い込みやクセは？
-      </label>
-
-      <p class="hint">
-        例：嫌われたくない、人の目が気になる、
-        私が頑張らなきゃと思ってしまう
-      </p>
-
-      <textarea
-        id="belief"
-        placeholder="今気づいた思い込みやクセを書いてみてね😊"
-      ></textarea>
-    </section>
-
-    <section class="question-card">
-      <div class="question-number">2</div>
-
-      <label for="fear">
-        その奥で「安心してない私」は、
-        何を怖がっていると思う？
-      </label>
-
-      <p class="hint">
-        例：ひとりになること、嫌われること、
-        失敗すること、生活できなくなること
-      </p>
-
-      <textarea
-        id="fear"
-        placeholder="本当は何が怖かったのかな？"
-      ></textarea>
-    </section>
-
-    <section class="question-card">
-      <div class="question-number">3</div>
-
-      <label for="wantedSafety">
-        その私は、本当はどんな安心が欲しかった？
-      </label>
-
-      <p class="hint">
-        例：味方でいてほしかった、大丈夫と言ってほしかった、
-        そのままの私を受け止めてほしかった
-      </p>
-
-      <textarea
-        id="wantedSafety"
-        placeholder="本当は、どうしてほしかったのかな？"
-      ></textarea>
-    </section>
-
-    <section class="question-card">
-      <div class="question-number">4</div>
-
-      <label for="kindWords">
-        今の私から、その私に
-        どんな言葉をかけてあげたい？
-      </label>
-
-      <p class="hint">
-        例：大丈夫だよ。私はあなたの味方だよ。
-        もう一人で頑張らなくていいよ。
-      </p>
-
-      <textarea
-        id="kindWords"
-        placeholder="今のあなたから、やさしい言葉を届けてみてね🌈"
-      ></textarea>
-    </section>
-
-    <div class="action-area">
-      <button
-        type="button"
-        class="main-button"
-        id="completeButton"
-      >
-        安心を受け取る 🌈
-      </button>
-
-      <button
-        type="button"
-        class="sub-button"
-        id="copyButton"
-      >
-        回答をコピーする
-      </button>
-
-      <div
-        class="status"
-        id="status"
-        aria-live="polite"
-      ></div>
-    </div>
-
-    <section
-      class="ending"
-      id="ending"
-    >
-      <img
-        class="ending-image"
-        src="https://raw.githubusercontent.com/Chappy-Sally/chappy-sally-images/main/anshin/cs_Suyasuya.png"
-        alt="安心して眠るチャッピーとサリー"
-      >
-
-      <div class="ending-card">
-        <h2>🌈 安心できた私へ</h2>
-
-        <p>
-          よくここまで心を見つめてきたね😊
+        <p class="lead">
+          今見つかった思い込みやクセの奥には、<br>
+          安心したいのに、安心できずにいる私が<br>
+          いるのかもしれません😊
         </p>
+      </section>
 
-        <p>
-          思い込みやクセを責めなくて大丈夫。
-        </p>
+      <div class="message-box">
+        <strong>答えを急がなくて大丈夫です🌿</strong>
 
-        <p>
-          その奥には、ただ<br>
-          <strong>安心したかった私</strong>がいただけ🌱
-        </p>
-
-        <p>
-          今日からは、その私に<br>
-          「大丈夫だよ」とやさしく声をかけてあげよう。
-        </p>
-
-        <div class="affirmation">
-          私は大丈夫😊<br>
-          私は私の味方。<br>
-          安心して、一歩ずつ進んでいい🌈
-        </div>
+        うまく書こうとしなくて大丈夫。<br>
+        今のあなたが感じられる範囲で、<br>
+        やさしく心に聞いてみてね😊
       </div>
-    </section>
 
-    <p class="small-note">
-      書いた内容は、この端末の中に一時保存されます🌿
-    </p>
+      <section class="question-card">
+        <div class="question-number">1</div>
 
+        <label for="belief">
+          今見つかった思い込みやクセは？
+        </label>
+
+        <p class="hint">
+          例：嫌われたくない、人の目が気になる、<br>
+          私が頑張らなきゃと思ってしまう
+        </p>
+
+        <textarea
+          id="belief"
+          placeholder="今気づいた思い込みやクセを書いてみてね😊"
+        ></textarea>
+      </section>
+
+      <section class="question-card">
+        <div class="question-number">2</div>
+
+        <label for="fear">
+          その奥で「安心できない私」は、<br>
+          何を怖がっていると思う？
+        </label>
+
+        <p class="hint">
+          例：ひとりになること、嫌われること、<br>
+          失敗すること、生活できなくなること
+        </p>
+
+        <textarea
+          id="fear"
+          placeholder="本当は何が怖かったのかな？"
+        ></textarea>
+      </section>
+
+      <section class="question-card">
+        <div class="question-number">3</div>
+
+        <label for="wantedSafety">
+          その私は、本当はどんな安心が欲しかった？
+        </label>
+
+        <p class="hint">
+          例：味方でいてほしかった、大丈夫と言ってほしかった、<br>
+          そのままの私を受け止めてほしかった
+        </p>
+
+        <textarea
+          id="wantedSafety"
+          placeholder="本当は、どうしてほしかったのかな？"
+        ></textarea>
+      </section>
+
+      <section class="question-card">
+        <div class="question-number">4</div>
+
+        <label for="kindWords">
+          今の私から「安心できない私」へ、<br>
+          どんな言葉をかけてあげたい？
+        </label>
+
+        <p class="hint">
+          例：大丈夫だよ。私はあなたの味方だよ。<br>
+          もう一人で頑張らなくていいよ。
+        </p>
+
+        <textarea
+          id="kindWords"
+          placeholder="今のあなたから、やさしい言葉を届けてみてね🌈"
+        ></textarea>
+      </section>
+
+      <div class="action-area">
+        <button
+          type="button"
+          class="main-button"
+          id="completeButton"
+        >
+          安心を受け取る 🌈
+        </button>
+
+        <button
+          type="button"
+          class="sub-button"
+          id="copyButton"
+        >
+          🐶 チャッピーGPTに送る文章をコピー
+        </button>
+
+        <div
+          class="status"
+          id="status"
+          aria-live="polite"
+        ></div>
+      </div>
+
+      <section
+        class="ending"
+        id="ending"
+      >
+        <img
+          class="ending-image"
+          src="https://raw.githubusercontent.com/Chappy-Sally/chappy-sally-images/main/anshin/cs_Suyasuya.png"
+          alt="安心して眠るチャッピーとサリー"
+        >
+
+        <div class="ending-card">
+          <h2>🌈 安心できた私へ</h2>
+
+          <p>
+            よくここまで心を見つめてきたね😊
+          </p>
+
+          <p>
+            思い込みやクセを責めなくて大丈夫。
+          </p>
+
+          <p>
+            その奥には、ただ<br>
+            <strong>本当は安心したかった私</strong>がいただけ🌱
+          </p>
+
+          <p>
+            今日からは、その私に<br>
+            「大丈夫だよ」と<br>
+            やさしく声をかけてあげよう。
+          </p>
+
+          <div class="affirmation">
+            私は大丈夫😊<br>
+            私は私の味方。<br>
+            安心して、一歩ずつ進んでいい🌈
+          </div>
+        </div>
+      </section>
+
+      <div class="bottom-buttons">
+        <button
+          type="button"
+          class="retry-button"
+          id="clearButton"
+        >
+          もう一度<br>やってみる
+        </button>
+
+        <button
+          type="button"
+          class="home-button"
+          onclick="location.href='index.html'"
+        >
+          ホームにもどる
+        </button>
+      </div>
+
+      <p class="small-note">
+        書いた内容は、この端末の中に一時保存されます🌿
+      </p>
+
+    </div>
   </main>
 
   <script>
@@ -602,12 +606,12 @@
     function createCopyText() {
       const answers = getAnswers();
 
-      return `安心してない私に会いに行ってみたよ🌿
+      return `安心できない私に会いに行ってみたよ🌿
 
 【今見つかった思い込みやクセ】
 ${answers.belief || "（まだ思いつかない）"}
 
-【その奥で、安心してない私が怖がっていること】
+【その奥で、安心できない私が怖がっていること】
 ${answers.fear || "（まだ思いつかない）"}
 
 【本当は欲しかった安心】
@@ -617,7 +621,7 @@ ${answers.wantedSafety || "（まだ思いつかない）"}
 ${answers.kindWords || "（まだ思いつかない）"}
 
 思い込みやクセを責めるのではなく、
-その奥にいる「安心したかった私」に寄り添いながら、
+その奥にいる「本当は安心したかった私」に寄り添いながら、
 やさしく安心に戻るお手伝いをしてください😊🌈`;
     }
 
@@ -626,9 +630,10 @@ ${answers.kindWords || "（まだ思いつかない）"}
 
       try {
         await navigator.clipboard.writeText(createCopyText());
-        showStatus("回答をコピーしました😊");
+        showStatus("文章をコピーしました😊");
       } catch (error) {
         const temp = document.createElement("textarea");
+
         temp.value = createCopyText();
         temp.style.position = "fixed";
         temp.style.opacity = "0";
@@ -638,7 +643,7 @@ ${answers.kindWords || "（まだ思いつかない）"}
         document.execCommand("copy");
         temp.remove();
 
-        showStatus("回答をコピーしました😊");
+        showStatus("文章をコピーしました😊");
       }
     }
 
@@ -652,7 +657,6 @@ ${answers.kindWords || "（まだ思いつかない）"}
 
     function showEnding() {
       saveAnswers();
-
       ending.classList.add("show");
 
       window.setTimeout(() => {
@@ -667,7 +671,7 @@ ${answers.kindWords || "（まだ思いつかない）"}
 
     function clearAnswers() {
       const shouldClear = window.confirm(
-        "入力した内容をすべて消しますか？"
+        "入力した内容を消して、もう一度はじめますか？"
       );
 
       if (!shouldClear) {
@@ -681,7 +685,12 @@ ${answers.kindWords || "（まだ思いつかない）"}
       localStorage.removeItem(STORAGE_KEY);
       ending.classList.remove("show");
 
-      showStatus("入力内容を消しました🌿");
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+      showStatus("最初から始められます🌿");
     }
 
     Object.values(fields).forEach((field) => {
