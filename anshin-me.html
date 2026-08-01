@@ -22,7 +22,7 @@
       --cream: #fff9e8;
       --cream-border: #f3df9f;
       --pink: #e994a9;
-      --pink-dark: #9a94f2;
+      --purple: #9a94f2;
       --green: #799667;
       --shadow: 0 10px 28px rgba(126, 84, 64, 0.12);
     }
@@ -148,8 +148,8 @@
     .question-card label {
       display: block;
       margin-bottom: 11px;
-      font-weight: 700;
       font-size: 18px;
+      font-weight: 700;
       line-height: 1.7;
     }
 
@@ -186,21 +186,27 @@
       color: #b6a094;
     }
 
-    .action-area {
-      margin-top: 26px;
+    /* 4つのボタンを縦一列 */
+    .button-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 28px;
     }
 
     .main-button,
-    .sub-button,
+    .copy-button,
     .retry-button,
     .home-button {
       display: block;
       width: 100%;
+      min-height: 72px;
       appearance: none;
       border-radius: 999px;
       padding: 17px 18px;
       font-size: 18px;
       font-weight: 700;
+      line-height: 1.5;
       cursor: pointer;
       transition:
         transform 0.15s ease,
@@ -214,20 +220,34 @@
         linear-gradient(
           135deg,
           var(--pink),
-          var(--pink-dark)
+          var(--purple)
         );
       box-shadow: 0 10px 22px rgba(173, 126, 210, 0.28);
     }
 
-    .sub-button {
-      margin-top: 13px;
+    .copy-button {
       border: 2px solid #dca2b3;
       color: #a55d73;
       background: #fff;
+      box-shadow: 0 8px 18px rgba(185, 121, 143, 0.12);
+    }
+
+    .retry-button {
+      border: none;
+      color: #fff;
+      background: linear-gradient(135deg, #87d9d2, #aaa0ef);
+      box-shadow: 0 10px 22px rgba(127, 150, 210, 0.25);
+    }
+
+    .home-button {
+      border: none;
+      color: #fff;
+      background: linear-gradient(135deg, #ffd15f, #ff9568);
+      box-shadow: 0 10px 22px rgba(239, 153, 92, 0.25);
     }
 
     .main-button:active,
-    .sub-button:active,
+    .copy-button:active,
     .retry-button:active,
     .home-button:active {
       transform: scale(0.98);
@@ -280,31 +300,6 @@
       line-height: 1.9;
     }
 
-    .bottom-buttons {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 28px;
-    }
-
-    .retry-button,
-    .home-button {
-      min-height: 88px;
-      border: none;
-      color: #fff;
-      line-height: 1.5;
-    }
-
-    .retry-button {
-      background: linear-gradient(135deg, #87d9d2, #aaa0ef);
-      box-shadow: 0 10px 22px rgba(127, 150, 210, 0.25);
-    }
-
-    .home-button {
-      background: linear-gradient(135deg, #ffd15f, #ff9568);
-      box-shadow: 0 10px 22px rgba(239, 153, 92, 0.25);
-    }
-
     .small-note {
       margin: 20px 0 0;
       font-size: 13px;
@@ -344,13 +339,12 @@
         padding: 18px 14px 30px;
       }
 
-      .bottom-buttons {
-        gap: 10px;
-      }
-
+      .main-button,
+      .copy-button,
       .retry-button,
       .home-button {
-        padding: 14px 10px;
+        min-height: 68px;
+        padding: 15px 12px;
         font-size: 17px;
       }
     }
@@ -459,7 +453,9 @@
         ></textarea>
       </section>
 
-      <div class="action-area">
+      <!-- 4つのボタン -->
+      <div class="button-list">
+
         <button
           type="button"
           class="main-button"
@@ -470,18 +466,35 @@
 
         <button
           type="button"
-          class="sub-button"
+          class="copy-button"
           id="copyButton"
         >
           🐶 チャッピーGPTに送る文章をコピー
         </button>
 
-        <div
-          class="status"
-          id="status"
-          aria-live="polite"
-        ></div>
+        <button
+          type="button"
+          class="retry-button"
+          id="clearButton"
+        >
+          もう一度やってみる
+        </button>
+
+        <button
+          type="button"
+          class="home-button"
+          id="homeButton"
+        >
+          ホームにもどる
+        </button>
+
       </div>
+
+      <div
+        class="status"
+        id="status"
+        aria-live="polite"
+      ></div>
 
       <section
         class="ending"
@@ -523,24 +536,6 @@
         </div>
       </section>
 
-      <div class="bottom-buttons">
-        <button
-          type="button"
-          class="retry-button"
-          id="clearButton"
-        >
-          もう一度<br>やってみる
-        </button>
-
-        <button
-          type="button"
-          class="home-button"
-          onclick="location.href='index.html'"
-        >
-          ホームにもどる
-        </button>
-      </div>
-
       <p class="small-note">
         書いた内容は、この端末の中に一時保存されます🌿
       </p>
@@ -563,6 +558,7 @@
     const completeButton = document.getElementById("completeButton");
     const copyButton = document.getElementById("copyButton");
     const clearButton = document.getElementById("clearButton");
+    const homeButton = document.getElementById("homeButton");
 
     function getAnswers() {
       return {
@@ -693,6 +689,10 @@ ${answers.kindWords || "（まだ思いつかない）"}
       showStatus("最初から始められます🌿");
     }
 
+    function goHome() {
+      window.location.href = "index.html";
+    }
+
     Object.values(fields).forEach((field) => {
       field.addEventListener("input", saveAnswers);
     });
@@ -700,6 +700,7 @@ ${answers.kindWords || "（まだ思いつかない）"}
     completeButton.addEventListener("click", showEnding);
     copyButton.addEventListener("click", copyAnswers);
     clearButton.addEventListener("click", clearAnswers);
+    homeButton.addEventListener("click", goHome);
 
     loadAnswers();
   </script>
