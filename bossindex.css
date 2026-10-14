@@ -37,17 +37,16 @@ h1{
 }
 
 .app-subtitle{
-  font-size:clamp(14px, 4vw, 18px);
+  font-size:min(14px, 2.6vw);
   font-weight:bold;
   line-height:1.6;
   margin:0 0 14px;
   color:#6b4b2a;
+  white-space:nowrap;
 }
 
 .app-subtitle span{
-  display:block;
-  max-width:100%;
-  overflow-wrap:anywhere;
+  display:inline;
 }
 
 .hero-img{
