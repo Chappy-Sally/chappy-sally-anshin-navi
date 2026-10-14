@@ -37,16 +37,20 @@ h1{
 }
 
 .app-subtitle{
-  font-size:14px;
+  font-size:18px;
+  font-weight:bold;
   line-height:1.6;
   margin:0 0 14px;
-  color:#7b5b39;
+  color:#6b4b2a;
 }
 
 .hero-img{
   display:block;
   width:90%;
   max-width:460px;
+  aspect-ratio:1536 / 814;
+  object-fit:cover;
+  object-position:center;
   margin:16px auto 20px;
   border-radius:22px;
   box-shadow:0 8px 18px rgba(0,0,0,0.12);
