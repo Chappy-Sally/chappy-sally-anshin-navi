@@ -344,7 +344,16 @@
       setTimeout(() => {
         breathImg.src = imageBase + fileName;
 
+        // 毎回いったん動きをリセットして、
+        // 3回ともアニメーションが確実に動くようにする
         breathImg.classList.remove("inhale", "exhale");
+        breathImg.style.transition = "none";
+        breathImg.style.transform = "scale(1)";
+
+        // ブラウザにリセット状態を認識させる
+        void breathImg.offsetWidth;
+
+        breathImg.style.transition = "";
 
         if(motion){
           breathImg.classList.add(motion);
